@@ -1,0 +1,81 @@
+.habilidad-bloque {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 200px;
+}
+
+.col-titulo {
+  width: 300px; /* Espacio fijo para el título */
+  text-align: left;
+}
+
+.col-titulo h3 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.col-logos {
+  flex: 1;
+  padding-left: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.logos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, max-content); /* 3 columnas */
+    column-gap: 60px; /* menor espacio horizontal */
+    row-gap: 30px;    /* espacio vertical si quieres mantenerlo */
+}
+
+.logos-grid div {
+  display: flex;
+  align-items: center;     
+  gap: 12px;
+  font-size: 1.3rem;
+  color: var(--white);
+  line-height: 1;          
+}
+
+.logos-grid i {
+  font-size: 3.8rem;
+  display: flex;
+  align-items: center;     
+  justify-content: center;
+  min-width: 60px;         /* espacio uniforme para íconos */
+}
+
+.logos-grid div p {
+  margin: 0;         /* elimina posibles márgenes por defecto */
+  line-height: 2;  /* o ajusta según tu fuente */
+}
+
+
+
+
+#habilidades {
+  padding-left: 60px; /* Aumenta este valor si lo quieres aún más al centro */
+}
+
+.logos-icono img {
+  width: 60px;     /* puedes ajustar el valor según lo necesites */
+  height: 60px;
+  object-fit: contain;  /* mantiene la proporción sin recortar */
+}
+
+
+.logos-icono {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.3rem;
+  color: var(--white);
+}
+
+.logos-icono p {
+  margin: 0;
+}

@@ -1,0 +1,21 @@
+.email-vertical {
+  position: fixed;
+  left: 30px;
+  top: 50%;
+  transform: rotate(-90deg) translateX(-50%);
+  transform-origin: left center;
+  font-size: 14px;
+  color: var(--beige);
+  letter-spacing: 2px;
+  font-family: 'Courier New', Courier, monospace;
+  z-index: 9999;
+  white-space: nowrap;
+  opacity: 0.8;
+  text-decoration: none;
+  padding-left: 10px;
+}
+
+.email-vertical:hover {
+  color: var(--white);
+  opacity: 1;
+}

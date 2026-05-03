@@ -1,0 +1,104 @@
+  .educacion-section {
+    padding: 60px 0;
+    color: var(--white);
+  }
+
+  .titulo-seccion {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+
+  .titulo-estudio,
+  .titulo-curso,
+  .titulo-idiomas {
+    font-size: 1.8rem; /* o prueba con 1.4rem si lo quieres más grande */
+    font-weight: 700;
+    color: var(--white); /* o el color que estés usando para títulos */
+    margin-bottom: 0.4rem;
+  }
+
+  .linea-tiempo {
+    position: relative;
+    padding-left: 20px;
+    border-left: 2px solid var(--verde);
+  }
+
+  .item-educacion {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .item-educacion .punto {
+    width: 14px;
+    height: 14px;
+    background-color: var(--verde);
+    border-radius: 50%;
+    position: absolute;
+    left: -7px;
+    top: 10px;
+    z-index: 1;
+  }
+
+  .item-educacion .contenido {
+    background-color: rgba(38, 38, 38, 0.03);
+    padding: 15px 20px;
+    border-radius: 8px;
+    border-left: 3px solid var(--verde-medio);
+    box-shadow: 0 0 10px rgba(81, 83, 60, 0.15);
+  }
+
+  .item-educacion.futuro .punto {
+    background-color: var(--gris);
+  }
+
+  .lista-cursos {
+    list-style: none;
+    padding-left: 0;
+    font-size: 1rem;
+  }
+
+  .lista-cursos li {
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 12px 15px;
+    border-left: 3px solid var(--verde-hover);
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .lista-cursos li:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .educacion-section .linea-tiempo .item-educacion.futuro .punto {
+    background-color: var(--gris);
+  }
+  .punto {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    position: absolute;
+    left: -12px;
+    top: 0;
+    border: 2px solid white;
+  }
+
+  /* Colores personalizados */
+  .punto.curso-react {
+    background-color: var(--amarillo-pastel); /* Azul React */
+  }
+
+  .punto.curso-js {
+    background-color: var(--rosa-viejo); /* Naranja Git */
+  }
+
+  .punto.curso-python {
+    background-color: var(--azul); /* Naranja Git */
+  }
+  .institucion {
+    color: var(--gris);
+  }
+
+  /* Agrega más colores si hay más cursos */

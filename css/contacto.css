@@ -1,0 +1,75 @@
+/* contacto.css */
+#contacto {
+  background-color: transparent;
+  padding: 80px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenedor-contacto {
+  width: 100%;
+  max-width: 1000px;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(85, 85, 85, 0.1);
+}
+
+.titulo-contacto {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: var(--white);
+}
+
+.campo-formulario {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.campo-formulario label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: var(--white);
+}
+
+.campo-formulario input,
+.campo-formulario textarea {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 1rem;
+  resize: none;
+  transition: all 0.3s ease;
+}
+
+.campo-formulario input:focus,
+.campo-formulario textarea:focus {
+  outline: none;
+  border-color: var(--white);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.boton-contenedor {
+  display: flex;
+  justify-content: center;
+}
+
+.boton-contenedor button {
+  background-color: var(--white);
+  color: #111;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.boton-contenedor button:hover {
+  background-color: #e2e2e2;
+}

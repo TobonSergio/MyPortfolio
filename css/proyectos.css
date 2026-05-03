@@ -1,0 +1,114 @@
+#projectGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  padding: 60px 0;
+}
+
+
+/* Tarjeta de proyecto más grande */
+.card-proyecto {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--verde-hover);
+  border-radius: 28px;
+  padding: 40px;
+  text-decoration: none;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+
+  width: 500px;/* tarjetas aún más anchas */
+  min-height: 480px; /* tarjetas más altas */
+  max-width: 1000px;
+}
+
+/* Hover efecto mejorado */
+.card-proyecto:hover {
+  transform: translateY(-8px);
+  background-color: rgba(255, 255, 255, 0.07);
+  border-color: var(--verde);
+}
+
+/* Contenido interno */
+.card-contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Imagen */
+.card-img {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+
+.card-proyecto:hover .card-img img {
+  transform: scale(1.05);
+}
+
+/* Título y descripción */
+.titulo-proyecto {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: var(--white);
+}
+
+.descripcion-proyecto {
+  font-size: 1.2rem;
+  color: var(--gris);
+  line-height: 1.7;
+  flex-grow: 1;
+}
+
+/* Herramientas */
+.herramientas-proyecto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.herramientas-proyecto span {
+  background-color: var(--verde-hover);
+  color: var(--white);
+  font-size: 1rem;
+  padding: 10px 18px;
+  border-radius: 18px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-proyecto {
+    flex: 1 1 100%;
+    padding: 24px;
+    min-height: auto;
+  }
+
+  .titulo-proyecto {
+    font-size: 1.8rem;
+  }
+
+  .descripcion-proyecto {
+    font-size: 1rem;
+  }
+
+  .card-img {
+    height: 200px;
+  }
+}

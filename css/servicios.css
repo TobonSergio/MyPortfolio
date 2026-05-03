@@ -1,0 +1,78 @@
+/* Sección general */
+.servicios-section {
+  padding: 80px 0;
+  background-color: transparent;
+  color: var(--white);
+}
+
+/* Título de sección */
+.titulo-seccion {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 60px;
+  color: var(--white);
+}
+
+/* Grid de servicios */
+.grid-servicios {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  justify-items: center;
+  align-items: start;
+}
+
+/* Tarjeta individual */
+.card-servicio {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--verde-hover);
+  border-radius: 24px;
+  padding: 30px 24px;
+  text-align: center;
+  color: var(--white);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  max-width: 400px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-servicio:hover {
+  transform: translateY(-6px);
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--verde);
+}
+
+/* Imagen */
+.imagen-servicio {
+  width: 100%;
+  height: 180px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.imagen-servicio img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+
+.card-servicio:hover .imagen-servicio img {
+  transform: scale(1.05);
+}
+
+/* Título del servicio */
+.titulo-servicio {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+/* Descripción */
+.descripcion-servicio {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--gris);
+}

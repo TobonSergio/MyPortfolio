@@ -1,0 +1,47 @@
+/* Estilos personalizados para el Navbar */
+
+#navbar {
+  background-color: #181818ff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 15px 0;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#navbar .navbar-brand {
+  color: var(--white);
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+#navbar .navbar-brand:hover {
+  color: var(--verde-hover);
+}
+
+#navbar .nav-link {
+  color: var(--beige);
+  margin-left: 20px;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+#navbar .nav-link:hover {
+  color: var(--white);
+}
+
+#navbar .nav-item.active .nav-link,
+#navbar .nav-link.active {
+  color: var(--white);
+  border-bottom: 2px solid var(--verde-medio);
+}
+
+.navbar-toggler {
+  border-color: var(--gris);
+}
+
+.navbar-toggler-icon {
+  filter: brightness(90%);
+}
