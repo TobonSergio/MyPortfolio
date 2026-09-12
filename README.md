@@ -35,8 +35,8 @@ Puedes visualizar el portafolio en línea en el siguiente enlace:
 
 ## 📬 Contacto
 - **Email:** tobonsergio22@gmail.com
-- **LinkedIn:** [https://linkedin.com/in/tu-perfil](https://linkedin.com/in/tu-perfil)
-- **GitHub:** [https://github.com/tu-usuario](https://github.com/tu-usuario)
+- **LinkedIn:** [https://linkedin.com/in/tu-perfil](https://linkedin.com/in/sergio-tbn)
+- **GitHub:** [https://github.com/tu-usuario](https://github.com/TobonSergio)
 
 ---
 
