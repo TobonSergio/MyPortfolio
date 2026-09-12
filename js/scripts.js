@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+﻿document.addEventListener("DOMContentLoaded", () => {
   // =================================================================
   // UTILIDADES
   // =================================================================
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
       solucion: "Describe aquí la solución que implementaste.", // TODO: Reemplazar con datos reales
       rol: "Desarrollador Full Stack", // TODO: Reemplazar con tu rol real
       tecnologias: ["React", "Node.js", "MongoDB"], // TODO: Reemplazar con datos reales
-      imagen: "img/proyecto-2.jpeg", // TODO: añade la imagen en img/ y referencia aquí
+      imagen: "", // TODO: añade la imagen en img/ y referencia aquí
       enlaceDemo: "", // TODO: pegar URL de la demo o dejar ""
       enlaceRepo: "" // TODO: pegar URL del repo o dejar ""
     },
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
       solucion: "Describe aquí la solución que implementaste.", // TODO: Reemplazar con datos reales
       rol: "Desarrollador Backend", // TODO: Reemplazar con tu rol real
       tecnologias: ["Java", "Spring Boot", "PostgreSQL"], // TODO: Reemplazar con datos reales
-      imagen: "img/proyecto-3.jpeg", // TODO: añade la imagen en img/ y referencia aquí
+      imagen: "", // TODO: añade la imagen en img/ y referencia aquí
       enlaceDemo: "", // TODO: pegar URL de la demo o dejar ""
       enlaceRepo: "" // TODO: pegar URL del repo o dejar ""
     }
@@ -179,3 +179,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderProyectos();
 });
+
