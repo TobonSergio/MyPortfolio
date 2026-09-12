@@ -1,0 +1,192 @@
+/* ========================================================
+   RESPONSIVO GLOBAL - DISEÑO FLUIDO Y ADAPTATIVO
+   ======================================================== */
+
+/* 1. PREVENCIÓN DE DESBORDAMIENTO HORIZONTAL */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ========================================================
+   MONITORES Y DESKTOPS (min-width: 1025px)
+   ======================================================== */
+@media (min-width: 1025px) {
+  /* Asegurar Grid en Proyectos y Servicios para alta resolución */
+  #projectGrid, .grid-servicios, .logos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    width: 100%;
+  }
+}
+
+/* ========================================================
+   TABLETS Y PANTALLAS TEXTUALES (max-width: 1024px)
+   ======================================================== */
+@media (max-width: 1024px) {
+  /* Habilidades - Layout Tablet */
+  .habilidad-bloque {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+  }
+  .col-titulo {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  /* Reducir gap en grids */
+  #projectGrid, .grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+  }
+  .card-proyecto {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Reducir espacio lateral en Hero */
+  #inicio .contenido-izquierdo {
+    padding-left: 40px;
+  }
+  #inicio .contenido-derecho {
+    right: 20px;
+  }
+}
+
+/* ========================================================
+   TABLETS VERTICAL Y MÓVILES GRANDES (max-width: 768px)
+   ======================================================== */
+@media (max-width: 768px) {
+  /* Tipografía fluida básica */
+  html {
+    font-size: 90%;
+  }
+  section {
+    padding: 60px 20px;
+  }
+
+  /* Hero / Inicio: Pasar a 1 columna */
+  #inicio {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 120px;
+  }
+  #inicio .contenido-izquierdo {
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #inicio .contenido-derecho {
+    position: relative;
+    right: 0;
+    top: 0;
+    transform: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    gap: 20px;
+  }
+  #inicio .contenido-derecho > div {
+    flex: 1 1 120px;
+  }
+
+  /* Navbar compacto */
+  #navbar {
+    padding: 10px 0;
+  }
+  .navbar-collapse {
+    background-color: var(--verde-oscuro);
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 10px;
+  }
+  .navbar-nav .nav-item {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  /* Educación y Timeline fluidas */
+  .educacion-section .row {
+    flex-direction: column;
+  }
+  .educacion-section .col-md-6 {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  /* Contacto y Formularios anchos fluidos */
+  .contenedor-contacto {
+    width: 100%;
+    padding: 30px 20px;
+  }
+  .campo-formulario input,
+  .campo-formulario textarea, 
+  .boton-contenedor button {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Ocultar el email lateral flotante para ganar espacio en mobile */
+  .email-vertical {
+    display: none;
+  }
+}
+
+/* ========================================================
+   MÓVILES (max-width: 480px)
+   ======================================================== */
+@media (max-width: 480px) {
+  /* Ajustes tipográficos y padding extra para móviles */
+  html {
+    font-size: 85%;
+  }
+  
+  .titulo-seccion, .titulo-principal {
+    font-size: 2rem !important;
+  }
+  
+  /* Grillas al 100% de 1 columna limpia */
+  #projectGrid, .grid-servicios, .logos-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  /* Hero super compacto */
+  #inicio {
+    padding-top: 100px;
+  }
+  #inicio .titulo-profesion {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  /* Redes Sociales compactas */
+  .redes a {
+    margin: 0 8px;
+  }
+  
+  /* Tarjetas Proyecto y Servicios estiradas ocupando 100% */
+  .card-proyecto {
+    padding: 25px;
+    width: 100%; /* Forzar fluid width */
+  }
+  
+  /* Contacto estirado */
+  .contenedor-contacto {
+    padding: 20px 15px;
+  }
+}
