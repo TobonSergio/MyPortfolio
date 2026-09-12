@@ -1,13 +1,19 @@
-﻿#projectGrid {
+/* =========================================================
+   PROYECTOS – Grid base (Desktop & todas las pantallas)
+   ========================================================= */
+#projectGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  align-items: center;
-  gap: 60px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  align-items: start;
+  gap: 2rem;
+  width: 100%;
   padding: 60px 0;
 }
 
 
-/* Tarjeta de proyecto más grande */
+/* ---------------------------------------------------------
+   Tarjeta de proyecto (ancho fluido, sin width fijo)
+   --------------------------------------------------------- */
 .card-proyecto {
   background-color: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--verde-hover);
@@ -21,9 +27,11 @@
   transition: transform 0.3s ease, background-color 0.3s ease;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
 
-  width: 500px;/* tarjetas aún más anchas */
-  min-height: 480px; /* tarjetas más altas */
-  max-width: 1000px;
+  /* Ancho fluido: ocupa 100% de la celda del grid */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-height: 480px;
 }
 
 /* Hover efecto mejorado */
@@ -43,7 +51,7 @@
 /* Imagen */
 .card-img {
   width: 100%;
-  height: 260px;
+  height: 220px;
   overflow: hidden;
   border-radius: 20px;
   margin-bottom: 20px;
@@ -51,7 +59,7 @@
 
 .card-img img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   border-radius: 20px;
   transition: transform 0.3s ease;
@@ -93,8 +101,12 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  #projectGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
   .card-proyecto {
-    flex: 1 1 100%;
     padding: 24px;
     min-height: auto;
   }

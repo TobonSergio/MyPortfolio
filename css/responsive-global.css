@@ -12,13 +12,23 @@ html, body {
    MONITORES Y DESKTOPS (min-width: 1025px)
    ======================================================== */
 @media (min-width: 1025px) {
-  /* Asegurar Grid en Proyectos y Servicios para alta resolución */
-  #projectGrid, .grid-servicios, .logos-grid {
+  /* Proyectos: columnas fluidas con gap elegante */
+  #projectGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
+    gap: 2rem;
     width: 100%;
   }
+
+  /* Servicios: columnas ligeramente más estrechas */
+  .grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    width: 100%;
+  }
+
+  /* NOTA: .logos-grid se gestiona en habilidades.css, no se incluye aquí */
 }
 
 /* ========================================================
@@ -37,15 +47,19 @@ html, body {
     margin-bottom: 30px;
   }
   
-  /* Reducir gap en grids */
-  #projectGrid, .grid-servicios {
-    display: grid;
+  /* Reducir gap en grids – Tablet */
+  #projectGrid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    justify-content: center;
+    gap: 1.5rem;
   }
+
+  .grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
   .card-proyecto {
-    width: 100%;
     max-width: 100%;
   }
 
