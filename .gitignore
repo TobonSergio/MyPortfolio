@@ -1,0 +1,29 @@
+# Dependencias y directorios de entorno
+node_modules/
+.env
+
+# Archivos de SO
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs y depuración
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Configuraciones de IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Builds / Distribución
+dist/
+build/
+.next/
+out/
