@@ -76,3 +76,34 @@
   line-height: 1.6;
   color: var(--gris);
 }
+
+/* =========================================================
+   Icono del servicio (FontAwesome) en lugar de imagen
+   ========================================================= */
+.icono-servicio {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(28, 201, 33, 0.1);
+  border: 1px solid var(--verde-hover);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.icono-servicio i {
+  font-size: 2.2rem;
+  color: var(--verde);
+  transition: transform 0.3s ease;
+}
+
+.card-servicio:hover .icono-servicio {
+  background-color: rgba(28, 201, 33, 0.18);
+  transform: translateY(-4px);
+}
+
+.card-servicio:hover .icono-servicio i {
+  transform: scale(1.1);
+}

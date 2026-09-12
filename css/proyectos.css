@@ -112,3 +112,112 @@
     height: 200px;
   }
 }
+
+/* =========================================================
+   Nuevos campos de proyecto (problema, solución, rol, acciones)
+   ========================================================= */
+
+/* Contenedor de los detalles textuales */
+.detalle-proyecto {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex-grow: 1;
+}
+
+.detalle-proyecto p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--gris);
+}
+
+/* Etiqueta resaltada (Problema:, Solución:, Mi rol:) */
+.etiqueta-detalle {
+  color: var(--verde);
+  font-weight: 600;
+}
+
+/* Botones de acción (Demo / Repositorio) */
+.acciones-proyecto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.btn-proyecto {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-proyecto:hover {
+  transform: translateY(-3px);
+}
+
+.btn-demo {
+  background-color: var(--verde);
+  color: var(--negro);
+}
+
+.btn-demo:hover {
+  background-color: #18b01d;
+}
+
+.btn-repo {
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--verde-hover);
+}
+
+.btn-repo:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.btn-proyecto i {
+  font-size: 0.95rem;
+}
+
+/* Aviso cuando aún no hay enlaces cargados */
+.acciones-vacio {
+  font-size: 0.95rem;
+  color: var(--gris);
+  font-style: italic;
+}
+
+/* Placeholder de imagen (cuando no existe o falla la carga) */
+.card-img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px dashed var(--verde-hover);
+}
+
+.card-img-placeholder::after {
+  content: "\f03e"; /* fa-image */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 3rem;
+  color: var(--gris);
+}
+
+/* Responsive de los nuevos campos */
+@media (max-width: 768px) {
+  .detalle-proyecto p {
+    font-size: 0.95rem;
+  }
+
+  .btn-proyecto {
+    font-size: 0.9rem;
+    padding: 10px 18px;
+  }
+}
