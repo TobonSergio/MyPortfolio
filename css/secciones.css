@@ -12,9 +12,9 @@
   background: var(--superficie);
 }
 
-.seccion--sin-borde {
-  border-top: 0;
-  padding-top: 0;
+/* Dentro de una banda, las tarjetas usan el fondo principal para destacar */
+.seccion--banda .caso {
+  background: var(--fondo);
 }
 
 .dos-columnas {

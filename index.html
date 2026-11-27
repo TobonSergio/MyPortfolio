@@ -120,11 +120,11 @@
                     <span class="nav__texto">Menú</span>
                 </button>
                 <ul id="menu" class="nav__lista" popover="auto">
-                    <li><a href="#proyectos">Proyectos</a></li>
-                    <li><a href="#experiencia">Experiencia</a></li>
-                    <li><a href="#habilidades">Habilidades</a></li>
                     <li><a href="#sobre-mi">Sobre mí</a></li>
+                    <li><a href="#experiencia">Experiencia</a></li>
                     <li><a href="#educacion">Educación</a></li>
+                    <li><a href="#habilidades">Habilidades</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
                     <li><a href="#servicios">Servicios</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
@@ -253,162 +253,6 @@
             </ul>
         </section>
 
-        <!-- PROYECTOS -->
-        <section id="proyectos" class="seccion" aria-labelledby="titulo-proyectos" tabindex="-1">
-            <div class="contenedor">
-                <h2 id="titulo-proyectos">Proyectos</h2>
-
-                <!--
-                  Para agregar un proyecto, copia este <article> y cambia su contenido.
-                  Si no hay repositorio o demo, elimina ese botón.
-                -->
-                <article class="caso" id="proyecto-basketstats">
-                    <div class="caso__imagen">
-                        <img src="img/proyectos/basketstats-800.webp"
-                            srcset="img/proyectos/basketstats-480.webp 480w, img/proyectos/basketstats-800.webp 800w"
-                            sizes="(min-width: 56rem) 26rem, calc(100vw - 2rem)" width="800" height="800"
-                            loading="lazy" decoding="async" alt="Logotipo de BasketStats: un jugador de baloncesto junto a una gráfica ascendente">
-                    </div>
-                    <div class="caso__texto">
-                        <h3 translate="no">BasketStats</h3>
-                        <dl class="caso__detalle">
-                            <div>
-                                <dt>Problema</dt>
-                                <dd>Consultar y comparar métricas de la NBA dispersas dificulta evaluar rendimientos y
-                                    proyectar resultados con rapidez.</dd>
-                            </div>
-                            <div>
-                                <dt>Solución</dt>
-                                <dd>Implementé una app web con Supabase que centraliza y estructura estadísticas de
-                                    jugadores y equipos para facilitar el análisis y pronóstico.</dd>
-                            </div>
-                            <div>
-                                <dt>Mi rol</dt>
-                                <dd>Ingeniero QA</dd>
-                            </div>
-                        </dl>
-                        <ul class="etiquetas" aria-label="Tecnologías" translate="no">
-                            <li>React</li>
-                            <li>Node.js</li>
-                            <li>MongoDB</li>
-                        </ul>
-                        <div class="acciones">
-                            <a class="boton boton--principal" href="https://stastbasketballfrontend.vercel.app/"
-                                target="_blank" rel="noopener noreferrer">
-                                Ver demo
-                                <span class="solo-lector">de BasketStats (se abre en otra pestaña)</span>
-                                <svg class="icono" aria-hidden="true"><use href="#i-externo"></use></svg>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- EXPERIENCIA -->
-        <section id="experiencia" class="seccion seccion--banda" aria-labelledby="titulo-experiencia" tabindex="-1">
-            <div class="contenedor">
-                <h2 id="titulo-experiencia">Experiencia</h2>
-
-                <div class="experiencias">
-                    <article class="experiencia" id="exp-sports">
-                        <h3>Desarrollador Software (Proyecto Sports Analytics)</h3>
-                        <ul>
-                            <li>Desarrollo de aplicación web para el seguimiento de estadísticas deportivas y marcador en
-                                tiempo real para jugadores de baloncesto.</li>
-                            <li>Construcción del backend y procesamiento de métricas en <strong>Python (FastAPI)</strong>
-                                integrado con interfaz dinámica en <strong>React</strong>.</li>
-                            <li>Diseño y modelado de base de datos relacional en <strong>MySQL</strong> para
-                                almacenamiento de eventos, métricas de rendimiento y puntuación.</li>
-                            <li>Control de versiones con <strong>Git y GitHub</strong>.</li>
-                        </ul>
-                    </article>
-
-                    <article class="experiencia" id="exp-comercio">
-                        <h3>Desarrollador Web (Proyecto)</h3>
-                        <ul>
-                            <li>Desarrollo de plataforma web para publicación y gestión de negocios/productos
-                                comerciales.</li>
-                            <li>Creación de arquitectura backend con <strong>Node.js, Express y MySQL</strong> para
-                                gestión de usuarios y catálogo.</li>
-                            <li>Implementación e integración de <strong>APIs REST</strong> con el frontend.</li>
-                            <li>Control de versiones con <strong>Git y GitHub</strong>.</li>
-                        </ul>
-                    </article>
-
-                    <article class="experiencia" id="exp-practicas">
-                        <h3>Prácticas Laborales – Desarrollador Backend</h3>
-                        <ul>
-                            <li>Desarrollo de plataforma web internacional para reserva de taxis, optimizando el flujo de
-                                datos y solicitudes.</li>
-                            <li>Construcción de APIs REST en <strong>Java (Spring Boot, Spring Security)</strong> para
-                                gestión de reservas y autenticación.</li>
-                            <li>Diseño y optimización de base de datos relacional en <strong>MySQL</strong>.</li>
-                            <li>Integración Full Stack con <strong>React</strong> y despliegue en la nube mediante
-                                <strong>Docker</strong> (Render, Vercel, Hostinger).</li>
-                            <li>Control de versiones con <strong>Git y GitHub</strong>.</li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- HABILIDADES -->
-        <section id="habilidades" class="seccion" aria-labelledby="titulo-habilidades" tabindex="-1">
-            <div class="contenedor">
-                <h2 id="titulo-habilidades">Habilidades</h2>
-
-                <div class="grupos">
-                    <div class="grupo">
-                        <h3>Frontend</h3>
-                        <ul class="tecnologias" translate="no">
-                            <li><img src="img/tech/html.webp" alt="" width="32" height="32" loading="lazy">HTML</li>
-                            <li><img src="img/tech/css.webp" alt="" width="32" height="32" loading="lazy">CSS</li>
-                            <li><img src="img/tech/javascript.webp" alt="" width="32" height="32" loading="lazy">JavaScript</li>
-                            <li><img src="img/tech/react.webp" alt="" width="32" height="32" loading="lazy">React</li>
-                            <li><img src="img/tech/bootstrap.webp" alt="" width="32" height="32" loading="lazy">Bootstrap</li>
-                            <li><img src="img/tech/typescript.webp" alt="" width="32" height="32" loading="lazy">TypeScript</li>
-                            <li><img src="img/tech/figma.webp" alt="" width="32" height="32" loading="lazy">Figma</li>
-                        </ul>
-                    </div>
-
-                    <div class="grupo">
-                        <h3>Backend</h3>
-                        <ul class="tecnologias" translate="no">
-                            <li><img src="img/tech/java.webp" alt="" width="32" height="32" loading="lazy">Java</li>
-                            <li><img src="img/tech/python.webp" alt="" width="32" height="32" loading="lazy">Python</li>
-                            <li><img src="img/tech/php.webp" alt="" width="32" height="32" loading="lazy">PHP</li>
-                            <li><img src="img/tech/cpp.webp" alt="" width="32" height="32" loading="lazy">C++</li>
-                            <li><img src="img/tech/spring-boot.webp" alt="" width="32" height="32" loading="lazy">Spring Boot</li>
-                            <li><img src="img/tech/nodejs.webp" alt="" width="32" height="32" loading="lazy">Node.js</li>
-                        </ul>
-                    </div>
-
-                    <div class="grupo">
-                        <h3>Bases de datos</h3>
-                        <ul class="tecnologias" translate="no">
-                            <li><img src="img/tech/mysql.webp" alt="" width="32" height="32" loading="lazy">MySQL</li>
-                            <li><img src="img/tech/sqlite.webp" alt="" width="32" height="32" loading="lazy">SQLite</li>
-                            <li><img src="img/tech/postgresql.webp" alt="" width="32" height="32" loading="lazy">PostgreSQL</li>
-                            <li><img src="img/tech/mongodb.webp" alt="" width="32" height="32" loading="lazy">MongoDB</li>
-                            <li><img src="img/tech/redis.webp" alt="" width="32" height="32" loading="lazy">Redis</li>
-                            <li><img src="img/tech/neo4j.webp" alt="" width="32" height="32" loading="lazy">Neo4j</li>
-                        </ul>
-                    </div>
-
-                    <div class="grupo">
-                        <h3>Otros</h3>
-                        <ul class="tecnologias" translate="no">
-                            <li><img src="img/tech/git.webp" alt="" width="32" height="32" loading="lazy">Git</li>
-                            <li><img src="img/tech/github.webp" alt="" width="32" height="32" loading="lazy">GitHub</li>
-                            <li><img src="img/tech/jwt.webp" alt="" width="32" height="32" loading="lazy">JWT</li>
-                            <li><img src="img/tech/gcp.webp" alt="" width="32" height="32" loading="lazy">GCP</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- SOBRE MÍ -->
         <section id="sobre-mi" class="seccion seccion--banda" aria-labelledby="titulo-sobre-mi" tabindex="-1">
             <div class="contenedor">
@@ -498,8 +342,56 @@
             </div>
         </section>
 
+        <!-- EXPERIENCIA -->
+        <section id="experiencia" class="seccion" aria-labelledby="titulo-experiencia" tabindex="-1">
+            <div class="contenedor">
+                <h2 id="titulo-experiencia">Experiencia</h2>
+
+                <div class="experiencias">
+                    <article class="experiencia" id="exp-sports">
+                        <h3>Desarrollador Software (Proyecto Sports Analytics)</h3>
+                        <ul>
+                            <li>Desarrollo de aplicación web para el seguimiento de estadísticas deportivas y marcador en
+                                tiempo real para jugadores de baloncesto.</li>
+                            <li>Construcción del backend y procesamiento de métricas en <strong>Python (FastAPI)</strong>
+                                integrado con interfaz dinámica en <strong>React</strong>.</li>
+                            <li>Diseño y modelado de base de datos relacional en <strong>MySQL</strong> para
+                                almacenamiento de eventos, métricas de rendimiento y puntuación.</li>
+                            <li>Control de versiones con <strong>Git y GitHub</strong>.</li>
+                        </ul>
+                    </article>
+
+                    <article class="experiencia" id="exp-comercio">
+                        <h3>Desarrollador Web (Proyecto)</h3>
+                        <ul>
+                            <li>Desarrollo de plataforma web para publicación y gestión de negocios/productos
+                                comerciales.</li>
+                            <li>Creación de arquitectura backend con <strong>Node.js, Express y MySQL</strong> para
+                                gestión de usuarios y catálogo.</li>
+                            <li>Implementación e integración de <strong>APIs REST</strong> con el frontend.</li>
+                            <li>Control de versiones con <strong>Git y GitHub</strong>.</li>
+                        </ul>
+                    </article>
+
+                    <article class="experiencia" id="exp-practicas">
+                        <h3>Prácticas Laborales – Desarrollador Backend</h3>
+                        <ul>
+                            <li>Desarrollo de plataforma web internacional para reserva de taxis, optimizando el flujo de
+                                datos y solicitudes.</li>
+                            <li>Construcción de APIs REST en <strong>Java (Spring Boot, Spring Security)</strong> para
+                                gestión de reservas y autenticación.</li>
+                            <li>Diseño y optimización de base de datos relacional en <strong>MySQL</strong>.</li>
+                            <li>Integración Full Stack con <strong>React</strong> y despliegue en la nube mediante
+                                <strong>Docker</strong> (Render, Vercel, Hostinger).</li>
+                            <li>Control de versiones con <strong>Git y GitHub</strong>.</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <!-- EDUCACIÓN Y CURSOS -->
-        <section id="educacion" class="seccion" aria-labelledby="titulo-educacion" tabindex="-1">
+        <section id="educacion" class="seccion seccion--banda" aria-labelledby="titulo-educacion" tabindex="-1">
             <div class="contenedor dos-columnas">
                 <div>
                     <h2 id="titulo-educacion">Educación</h2>
@@ -562,8 +454,116 @@
             </div>
         </section>
 
+        <!-- HABILIDADES -->
+        <section id="habilidades" class="seccion" aria-labelledby="titulo-habilidades" tabindex="-1">
+            <div class="contenedor">
+                <h2 id="titulo-habilidades">Habilidades</h2>
+
+                <div class="grupos">
+                    <div class="grupo">
+                        <h3>Frontend</h3>
+                        <ul class="tecnologias" translate="no">
+                            <li><img src="img/tech/html.webp" alt="" width="32" height="32" loading="lazy">HTML</li>
+                            <li><img src="img/tech/css.webp" alt="" width="32" height="32" loading="lazy">CSS</li>
+                            <li><img src="img/tech/javascript.webp" alt="" width="32" height="32" loading="lazy">JavaScript</li>
+                            <li><img src="img/tech/react.webp" alt="" width="32" height="32" loading="lazy">React</li>
+                            <li><img src="img/tech/bootstrap.webp" alt="" width="32" height="32" loading="lazy">Bootstrap</li>
+                            <li><img src="img/tech/typescript.webp" alt="" width="32" height="32" loading="lazy">TypeScript</li>
+                            <li><img src="img/tech/figma.webp" alt="" width="32" height="32" loading="lazy">Figma</li>
+                        </ul>
+                    </div>
+
+                    <div class="grupo">
+                        <h3>Backend</h3>
+                        <ul class="tecnologias" translate="no">
+                            <li><img src="img/tech/java.webp" alt="" width="32" height="32" loading="lazy">Java</li>
+                            <li><img src="img/tech/python.webp" alt="" width="32" height="32" loading="lazy">Python</li>
+                            <li><img src="img/tech/php.webp" alt="" width="32" height="32" loading="lazy">PHP</li>
+                            <li><img src="img/tech/cpp.webp" alt="" width="32" height="32" loading="lazy">C++</li>
+                            <li><img src="img/tech/spring-boot.webp" alt="" width="32" height="32" loading="lazy">Spring Boot</li>
+                            <li><img src="img/tech/nodejs.webp" alt="" width="32" height="32" loading="lazy">Node.js</li>
+                        </ul>
+                    </div>
+
+                    <div class="grupo">
+                        <h3>Bases de datos</h3>
+                        <ul class="tecnologias" translate="no">
+                            <li><img src="img/tech/mysql.webp" alt="" width="32" height="32" loading="lazy">MySQL</li>
+                            <li><img src="img/tech/sqlite.webp" alt="" width="32" height="32" loading="lazy">SQLite</li>
+                            <li><img src="img/tech/postgresql.webp" alt="" width="32" height="32" loading="lazy">PostgreSQL</li>
+                            <li><img src="img/tech/mongodb.webp" alt="" width="32" height="32" loading="lazy">MongoDB</li>
+                            <li><img src="img/tech/redis.webp" alt="" width="32" height="32" loading="lazy">Redis</li>
+                            <li><img src="img/tech/neo4j.webp" alt="" width="32" height="32" loading="lazy">Neo4j</li>
+                        </ul>
+                    </div>
+
+                    <div class="grupo">
+                        <h3>Otros</h3>
+                        <ul class="tecnologias" translate="no">
+                            <li><img src="img/tech/git.webp" alt="" width="32" height="32" loading="lazy">Git</li>
+                            <li><img src="img/tech/github.webp" alt="" width="32" height="32" loading="lazy">GitHub</li>
+                            <li><img src="img/tech/jwt.webp" alt="" width="32" height="32" loading="lazy">JWT</li>
+                            <li><img src="img/tech/gcp.webp" alt="" width="32" height="32" loading="lazy">GCP</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROYECTOS -->
+        <section id="proyectos" class="seccion seccion--banda" aria-labelledby="titulo-proyectos" tabindex="-1">
+            <div class="contenedor">
+                <h2 id="titulo-proyectos">Proyectos</h2>
+
+                <!--
+                  Para agregar un proyecto, copia este <article> y cambia su contenido.
+                  Si no hay repositorio o demo, elimina ese botón.
+                -->
+                <article class="caso" id="proyecto-basketstats">
+                    <div class="caso__imagen">
+                        <img src="img/proyectos/basketstats-800.webp"
+                            srcset="img/proyectos/basketstats-480.webp 480w, img/proyectos/basketstats-800.webp 800w"
+                            sizes="(min-width: 56rem) 26rem, calc(100vw - 2rem)" width="800" height="800"
+                            loading="lazy" decoding="async" alt="Logotipo de BasketStats: un jugador de baloncesto junto a una gráfica ascendente">
+                    </div>
+                    <div class="caso__texto">
+                        <h3 translate="no">BasketStats</h3>
+                        <dl class="caso__detalle">
+                            <div>
+                                <dt>Problema</dt>
+                                <dd>Consultar y comparar métricas de la NBA dispersas dificulta evaluar rendimientos y
+                                    proyectar resultados con rapidez.</dd>
+                            </div>
+                            <div>
+                                <dt>Solución</dt>
+                                <dd>Implementé una app web con Supabase que centraliza y estructura estadísticas de
+                                    jugadores y equipos para facilitar el análisis y pronóstico.</dd>
+                            </div>
+                            <div>
+                                <dt>Mi rol</dt>
+                                <dd>Ingeniero QA</dd>
+                            </div>
+                        </dl>
+                        <ul class="etiquetas" aria-label="Tecnologías" translate="no">
+                            <li>React</li>
+                            <li>Node.js</li>
+                            <li>MongoDB</li>
+                        </ul>
+                        <div class="acciones">
+                            <a class="boton boton--principal" href="https://stastbasketballfrontend.vercel.app/"
+                                target="_blank" rel="noopener noreferrer">
+                                Ver demo
+                                <span class="solo-lector">de BasketStats (se abre en otra pestaña)</span>
+                                <svg class="icono" aria-hidden="true"><use href="#i-externo"></use></svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
         <!-- SERVICIOS -->
-        <section id="servicios" class="seccion seccion--sin-borde" aria-labelledby="titulo-servicios" tabindex="-1">
+        <section id="servicios" class="seccion" aria-labelledby="titulo-servicios" tabindex="-1">
             <div class="contenedor">
                 <h2 id="titulo-servicios">Servicios</h2>
                 <ul class="servicios">
