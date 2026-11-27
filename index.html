@@ -1,50 +1,105 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portafolio de Sergio Steban Tobon Montoya, Estudiante de Ingeniería y Junior Developer especializado en Frontend, Backend y Desarrollo Web.">
-    <!-- Open Graph Tags -->
+    <meta name="description" content="Portafolio de Sergio Steban Tobon Montoya, Desarrollador de Software especializado en desarrollo web Frontend y Backend.">
+    <meta name="author" content="Sergio Steban Tobon Montoya">
+    <meta name="theme-color" content="#181818">
+    <link rel="canonical" href="https://tobonsergio.github.io/MyPortfolio/">
+
+    <!-- Open Graph -->
     <meta property="og:title" content="Portafolio - Sergio Steban Tobon">
     <meta property="og:description" content="Explora mis proyectos, habilidades y servicios como Desarrollador de Software.">
-    <meta property="og:image" content="https://tusitio.com/img/proyecto-1.jpeg">
-    <meta property="og:url" content="https://tusitio.com">
+    <meta property="og:image" content="https://tobonsergio.github.io/MyPortfolio/img/proyecto-1.jpeg">
+    <meta property="og:url" content="https://tobonsergio.github.io/MyPortfolio/">
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_CO">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Portafolio - Sergio Steban Tobon">
+    <meta name="twitter:description" content="Explora mis proyectos, habilidades y servicios como Desarrollador de Software.">
+    <meta name="twitter:image" content="https://tobonsergio.github.io/MyPortfolio/img/proyecto-1.jpeg">
 
     <title>Portafolio - Sergio Steban Tobon Montoya</title>
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+
+    <!-- Datos estructurados (SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sergio Steban Tobon Montoya",
+      "jobTitle": "Desarrollador de Software",
+      "url": "https://tobonsergio.github.io/MyPortfolio/",
+      "sameAs": [
+        "https://linkedin.com/in/sergio-tbn",
+        "https://github.com/TobonSergio"
+      ]
+    }
+    </script>
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400&family=Raleway:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Librerías -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Font Awesome: solo los estilos que se usan (solid + brands) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css"
+        integrity="sha384-5t0634b3BeTSoxIIgd8lhUy22xY2BGs89gw0vReAMGcfJXXfA7fblIRGVkRFWRDL" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/solid.min.css"
+        integrity="sha384-+CMpNM/Tv3YfWmU43LPsvXlIdOUnxSooWv5fY/Tkap65JU4QTLBHp8nMrEkIEb3u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css"
+        integrity="sha384-hu7sKftLeB/8IYmWPfl2Jo6MTRHquwXVmGPT/08RqhuANVZrbNFBIsvWPOiUduYX" crossorigin="anonymous">
+
+    <!-- Estilos propios (después de Bootstrap para poder sobrescribirlo) -->
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="css/scroll-barra.css">
-    <link rel="stylesheet" href="css/style-inicio/inicio.css">
-    <link rel="stylesheet" href="css/responsive-global.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/background.css">
     <link rel="stylesheet" href="css/cursor.css">
     <link rel="stylesheet" href="css/email.css">
+    <link rel="stylesheet" href="css/style-inicio/inicio.css">
+    <link rel="stylesheet" href="css/habilidades.css">
     <link rel="stylesheet" href="css/sobremi.css">
     <link rel="stylesheet" href="css/educacion.css">
-    <link rel="stylesheet" href="css/habilidades.css">
     <link rel="stylesheet" href="css/proyectos.css">
     <link rel="stylesheet" href="css/servicios.css">
     <link rel="stylesheet" href="css/contacto.css">
+    <link rel="stylesheet" href="css/responsive-global.css">
+
+    <!-- Scripts (defer: no bloquean el renderizado) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+    <script src="js/background.js" defer></script>
+    <script src="js/cursor.js" defer></script>
+    <script src="js/scripts.js" defer></script>
+    <script src="js/scroll-barra.js" defer></script>
+    <script src="js/efecto-letraxletra.js" defer></script>
+    <script src="js/servicios.js" defer></script>
+    <script src="js/contacto.js" defer></script>
 </head>
 
 <body>
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress-container">
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <!-- Barra de progreso de scroll -->
+    <div class="scroll-progress-container" aria-hidden="true">
         <div class="scroll-progress-bar"></div>
     </div>
 
     <!-- Navbar -->
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark" aria-label="Navegación principal">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#inicio">Sergio Tobon</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú de navegación">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -60,164 +115,165 @@
             </div>
         </div>
     </nav>
-    <!-- Email vertical a la izquierda -->
+
+    <!-- Email vertical a la izquierda (solo escritorio) -->
     <a href="mailto:tobonsergio22@gmail.com" class="email-vertical">tobonsergio22@gmail.com</a>
 
+    <main id="contenido">
+
+    <!-- INICIO -->
     <section id="inicio">
-        <!-- Contenido principal alineado a la izquierda -->
         <div class="contenido-izquierdo">
             <h1 class="titulo-principal">
-                <span class="">Desarrollador</span> <br>de <span class="resaltado-verde">Software</span>
+                Desarrollador <br>de <span class="resaltado-verde">Software</span>
             </h1>
-            <h2 class="titulo-profesion">
-                ¡Hola! Soy Sergio, Ingeniero Informatico y Desarrollador de Software <br> cuento con mas de 5  años de experiencia construyendo soluciones
-                <br> web funcionales, eficientes y centradas en el usuario.
-            </h2>
+            <p class="titulo-profesion">
+                ¡Hola! Soy Sergio, Desarrollador de Software con más de 5 años de experiencia construyendo
+                soluciones web funcionales, eficientes y centradas en el usuario.
+            </p>
             <p class="slogan">Creando soluciones con propósito</p>
 
             <div class="redes mt-4">
-                <a href="https://linkedin.com/in/tu-perfil" target="_blank"><i class="fab fa-linkedin fa-2x me-3"></i></a>
-                <a href="https://github.com/tu-usuario" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+                <a href="https://linkedin.com/in/sergio-tbn" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Sergio Tobon">
+                    <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+                </a>
+                <a href="https://github.com/TobonSergio" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Sergio Tobon">
+                    <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+                </a>
             </div>
-            <a href="pdf/cv-sergio-tobon.pdf" download="CV_Sergio_Tobon.pdf" target="_blank" class="btn btn-outline-success mt-4">Descargar CV</a>
+            <a href="pdf/cv-sergio-tobon.pdf" download="CV_Sergio_Tobon.pdf" class="btn btn-outline-success mt-4">Descargar CV</a>
         </div>
 
-        <!-- Estadísticas a la derecha (de abajo hacia arriba) -->
-        <div class="contenido-derecho">
-            <div>
-                <div class="resaltado-verde" style="font-weight: bold;">9K+</div>
-                <div class="txt-exp">Horas Trabajadas</div>
+        <!-- Estadísticas -->
+        <ul class="contenido-derecho" aria-label="Estadísticas">
+            <li>
+                <span class="estadistica-numero">5+</span>
+                <span class="txt-exp">Años de Experiencia</span>
+            </li>
+            <li>
+                <span class="estadistica-numero">5+</span>
+                <span class="txt-exp">Proyectos Completados</span>
+            </li>
+            <li>
+                <span class="estadistica-numero">9K+</span>
+                <span class="txt-exp">Horas Trabajadas</span>
+            </li>
+        </ul>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section id="habilidades" class="habilidades-section">
+        <div class="container">
+            <h2 class="titulo-seccion text-center">Habilidades</h2>
+
+            <div class="habilidad-bloque">
+                <div class="col-titulo">
+                    <h3>FRONTEND</h3>
+                </div>
+                <ul class="logos-grid">
+                    <li class="logos-icono"><img src="img/html.png" alt="" width="60" height="60" loading="lazy"><span>HTML</span></li>
+                    <li class="logos-icono"><img src="img/css-3.png" alt="" width="60" height="60" loading="lazy"><span>CSS</span></li>
+                    <li class="logos-icono"><img src="img/js.png" alt="" width="60" height="60" loading="lazy"><span>JavaScript</span></li>
+                    <li class="logos-icono"><img src="img/react.png" alt="" width="60" height="60" loading="lazy"><span>React</span></li>
+                    <li class="logos-icono"><img src="img/bootstrap.png" alt="" width="60" height="60" loading="lazy"><span>Bootstrap</span></li>
+                    <li class="logos-icono"><img src="img/typescript.png" alt="" width="60" height="60" loading="lazy"><span>TypeScript</span></li>
+                    <li class="logos-icono"><img src="img/figma.png" alt="" width="60" height="60" loading="lazy"><span>Figma</span></li>
+                </ul>
             </div>
-            <div>
-                <div class="resaltado-verde" style="font-weight: bold;">5+</div>
-                <div class="txt-exp">Proyectos Completados</div>
+
+            <div class="habilidad-bloque">
+                <div class="col-titulo">
+                    <h3>BACKEND</h3>
+                </div>
+                <ul class="logos-grid">
+                    <li class="logos-icono"><img src="img/logo-java.png" alt="" width="60" height="60" loading="lazy"><span>Java</span></li>
+                    <li class="logos-icono"><img src="img/logo-python.png" alt="" width="60" height="60" loading="lazy"><span>Python</span></li>
+                    <li class="logos-icono"><img src="img/logo-php.png" alt="" width="60" height="60" loading="lazy"><span>PHP</span></li>
+                    <li class="logos-icono"><img src="img/logo-cpp.png" alt="" width="60" height="60" loading="lazy"><span>C++</span></li>
+                    <li class="logos-icono"><img src="img/logo-springboot.png" alt="" width="60" height="60" loading="lazy"><span>Spring Boot</span></li>
+                    <li class="logos-icono"><img src="img/logo-nodejs.png" alt="" width="60" height="60" loading="lazy"><span>Node.js</span></li>
+                </ul>
             </div>
-            <div>
-                <div class="resaltado-verde numbers" style="font-weight: bold;">5+</div>
-                <div class="txt-exp">Años de Experiencia</div>
+
+            <div class="habilidad-bloque">
+                <div class="col-titulo">
+                    <h3>DATABASE</h3>
+                </div>
+                <ul class="logos-grid">
+                    <li class="logos-icono"><img src="img/mysql.png" alt="" width="60" height="60" loading="lazy"><span>MySQL</span></li>
+                    <li class="logos-icono"><img src="img/sqlite.png" alt="" width="60" height="60" loading="lazy"><span>SQLite</span></li>
+                    <li class="logos-icono"><img src="img/postgresql.png" alt="" width="60" height="60" loading="lazy"><span>PostgreSQL</span></li>
+                    <li class="logos-icono"><img src="img/mongodb.png" alt="" width="60" height="60" loading="lazy"><span>MongoDB</span></li>
+                    <li class="logos-icono"><img src="img/redis.png" alt="" width="60" height="60" loading="lazy"><span>Redis</span></li>
+                    <li class="logos-icono"><img src="img/neo4j.png" alt="" width="60" height="60" loading="lazy"><span>Neo4j</span></li>
+                </ul>
+            </div>
+
+            <div class="habilidad-bloque">
+                <div class="col-titulo">
+                    <h3>OTROS</h3>
+                </div>
+                <ul class="logos-grid">
+                    <li class="logos-icono"><img src="img/git.png" alt="" width="60" height="60" loading="lazy"><span>Git</span></li>
+                    <li class="logos-icono"><img src="img/github.png" alt="" width="60" height="60" loading="lazy"><span>GitHub</span></li>
+                    <li class="logos-icono"><img src="img/jwt.png" alt="" width="60" height="60" loading="lazy"><span>JWT</span></li>
+                    <li class="logos-icono"><img src="img/google-cloud-platform-96.png" alt="" width="60" height="60" loading="lazy"><span>GCP</span></li>
+                </ul>
             </div>
         </div>
     </section>
 
-
-<!-- HABILIDADES -->
-<section id="habilidades" class="d-flex align-items-center habilidades-section">
-  <div class="container">
-    <h2 class="text-center mb-5">Habilidades</h2>
-
-    <!-- FRONTEND -->
-    <div class="habilidad-bloque">
-      <div class="col-titulo">
-        <h3>FRONTEND</h3>
-      </div>
-        <div class="col-logos logos-grid">
-            <div class="logos-icono"><img src="img/html.png" alt="HTML"><p>HTML</p></div>
-            <div class="logos-icono"><img src="img/css-3.png" alt="CSS"><p>CSS</p></div>
-            <div class="logos-icono"><img src="img/js.png" alt="JavaScript"><p>JavaScript</p></div>
-            <div class="logos-icono"><img src="img/react.png" alt="React"><p>React</p></div>
-            <div class="logos-icono"><img src="img/bootstrap.png" alt="Bootstrap"><p>Bootstrap</p></div>
-            <div class="logos-icono"><img src="img/typescript.png" alt="TypeScript"><p>TypeScript</p></div>
-            <div class="logos-icono"><img src="img/figma.png" alt="Figma"><p>Figma</p></div>
-        </div>
-        </div>
-
-        <!-- BACKEND -->
-        <div class="habilidad-bloque">
-        <div class="col-titulo">
-            <h3>BACKEND</h3>
-        </div>
-        <div class="col-logos logos-grid">
-            <div class="logos-icono"><img src="img/logo-java.png" alt="Java"><p>Java</p></div>
-            <div class="logos-icono"><img src="img/logo-python.png" alt="Python"><p>Python</p></div>
-            <div class="logos-icono"><img src="img/logo-php.png" alt="PHP"><p>PHP</p></div>
-            <div class="logos-icono"><img src="img/logo-cpp.png" alt="C++"><p>C++</p></div>
-            <div class="logos-icono"><img src="img/logo-springboot.png" alt="Spring Boot"><p>Spring Boot</p></div>
-            <div class="logos-icono"><img src="img/logo-nodejs.png" alt="Node.js"><p>Node.js</p></div>
-        </div>
-        </div>
-
-    <div class="habilidad-bloque">
-      <div class="col-titulo">
-        <h3>DATABASE</h3>
-      </div>
-      <div class="col-logos logos-grid">
-        <div class="logos-icono"><img src="img/mysql.png" alt="MySQL"><p>MySQL</p></div>
-        <div class="logos-icono"><img src="img/sqlite.png" alt="SQLite"><p>SQLite</p></div>
-        <div class="logos-icono"><img src="img/postgresql.png" alt="PostgreSQL"><p>PostgreSQL</p></div>
-        <div class="logos-icono"><img src="img/mongodb.png" alt="MongoDB"><p>MongoDB</p></div>
-        <div class="logos-icono"><img src="img/redis.png" alt=""></i><p>Redis</p></div>
-        <div class="logos-icono"><img src="img/neo4j.png" alt=""></i><p>Neo4j</p></div>
-      </div>
-    </div>
-
-    <div class="habilidad-bloque">
-      <div class="col-titulo">
-        <h3>OTROS</h3>
-      </div>
-      <div class="col-logos logos-grid">
-        <div class="logos-icono"><img src="img/git.png" alt="Git"><p>Git</p></div>
-        <div class="logos-icono"><img src="img/github.png" alt="GitHub"><p>GitHub</p></div>
-        <div class="logos-icono"><img src="img/jwt.png" alt="JWT"><p>JWT</p></div>
-                <div class="logos-icono"><img src="img/google-cloud-platform-96.png" alt="GCP"><p>GCP</p></div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
+    <!-- SOBRE MÍ -->
     <section id="sobremi" class="sobre-mi-section">
         <div class="container">
-            <!-- Frase destacada inicial -->
             <p class="frase-inicial" id="frase">
                 Mi prioridad es diseñar pensando en las personas. Cada línea de código y cada decisión busca mejorar la
                 experiencia de quien usará la solución.
             </p>
+
             <div class="titulo-decorado">
                 <h2>Sobre mí</h2>
-                <div class="linea-decorativa"></div>
+                <div class="linea-decorativa" aria-hidden="true"></div>
             </div>
+
             <div class="row align-items-center">
-                <!-- Columna izquierda: Saludo -->
                 <div class="col-md-5 col-12 saludo-container mb-4 mb-md-0">
                     <p class="saludo">
-                        Hola, soy <span class="nombre">SERGIO STEBAN</span><br>
-                        <span class="apellido"><span class="color-primer-apellido">TOBON </span><span>MONTOYA</span>
+                        Hola, soy <span class="nombre">SERGIO STEBAN</span>
+                        <span class="apellido"><span class="color-primer-apellido">TOBON</span> MONTOYA</span>
                     </p>
                 </div>
 
-                <!-- Columna derecha: Descripción -->
                 <div class="col-md-7 col-12 texto-descripcion">
                     <p>
-                        Un desarrollador de software enfocado en transformar ideas en <br>soluciones funcionales y
-                        creativas. Me especializo en el desarrollo web <br>con énfasis en interfaces limpias, accesibles
-                        y
-                        centradas en la experiencia <br>del usuario.
+                        Un desarrollador de software enfocado en transformar ideas en soluciones funcionales y
+                        creativas. Me especializo en el desarrollo web con énfasis en interfaces limpias, accesibles
+                        y centradas en la experiencia del usuario.
                     </p>
                     <p>
-                        Mi enfoque se basa en construir soluciones escalables, optimizadas y alineadas <br>con los
-                        objetivos
-                        tanto del usuario como del negocio. Doy prioridad al <br>rendimiento, la accesibilidad y la
-                        adaptabilidad en cada proyecto, con el <br>propósito de entregar experiencias efectivas que
-                        generen
-                        resultados reales.
+                        Mi enfoque se basa en construir soluciones escalables, optimizadas y alineadas con los
+                        objetivos tanto del usuario como del negocio. Doy prioridad al rendimiento, la accesibilidad y
+                        la adaptabilidad en cada proyecto, con el propósito de entregar experiencias efectivas que
+                        generen resultados reales.
                     </p>
                 </div>
+            </div>
+
+            <div class="titulo-decorado-dos">
+                <h3>Un poco más</h3>
+                <div class="linea-decorativa-dos" aria-hidden="true"></div>
             </div>
 
             <div class="accordion" id="accordionSobreMi">
-                <div class="titulo-decorado-dos">
-                <h2>Un poco mas</h2>
-                <div class="linea-decorativa-dos"></div>
-                </div>
                 <!-- MOTIVACIÓN -->
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingMotivacion">
+                    <h4 class="accordion-header" id="headingMotivacion">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseMotivacion">
+                            data-bs-target="#collapseMotivacion" aria-expanded="true" aria-controls="collapseMotivacion">
                             MOTIVACIÓN
                         </button>
-                    </h2>
-                    <div id="collapseMotivacion" class="accordion-collapse collapse show">
+                    </h4>
+                    <div id="collapseMotivacion" class="accordion-collapse collapse show" aria-labelledby="headingMotivacion">
                         <div class="accordion-body">
                             <p>
                                 Mi interés por la programación comenzó desde joven, impulsado por mi curiosidad sobre
@@ -234,13 +290,13 @@
 
                 <!-- METODOLOGÍA Y FORTALEZAS -->
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingMetodologia">
+                    <h4 class="accordion-header" id="headingMetodologia">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseMetodologia">
+                            data-bs-target="#collapseMetodologia" aria-expanded="false" aria-controls="collapseMetodologia">
                             METODOLOGÍA Y FORTALEZAS
                         </button>
-                    </h2>
-                    <div id="collapseMetodologia" class="accordion-collapse collapse">
+                    </h4>
+                    <div id="collapseMetodologia" class="accordion-collapse collapse" aria-labelledby="headingMetodologia">
                         <div class="accordion-body">
                             <p>
                                 Me adapto fácilmente a nuevas herramientas y entornos. He trabajado en proyectos
@@ -260,13 +316,13 @@
 
                 <!-- PROYECTOS PERSONALES -->
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingProyectos">
+                    <h4 class="accordion-header" id="headingProyectos">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseProyectos">
+                            data-bs-target="#collapseProyectos" aria-expanded="false" aria-controls="collapseProyectos">
                             PROYECTOS PERSONALES
                         </button>
-                    </h2>
-                    <div id="collapseProyectos" class="accordion-collapse collapse">
+                    </h4>
+                    <div id="collapseProyectos" class="accordion-collapse collapse" aria-labelledby="headingProyectos">
                         <div class="accordion-body">
                             <p>
                                 En mis tiempos libres desarrollo <strong>proyectos personales</strong> que automatizan
@@ -279,13 +335,13 @@
 
                 <!-- FUERA DEL CÓDIGO -->
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingFueraCodigo">
+                    <h4 class="accordion-header" id="headingFueraCodigo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseFueraCodigo">
-                            FUERA DE CODIGO
+                            data-bs-target="#collapseFueraCodigo" aria-expanded="false" aria-controls="collapseFueraCodigo">
+                            FUERA DEL CÓDIGO
                         </button>
-                    </h2>
-                    <div id="collapseFueraCodigo" class="accordion-collapse collapse">
+                    </h4>
+                    <div id="collapseFueraCodigo" class="accordion-collapse collapse" aria-labelledby="headingFueraCodigo">
                         <div class="accordion-body">
                             <p>
                                 Fuera del código, me gusta jugar baloncesto, caminar al aire libre y explorar nuevas
@@ -295,55 +351,50 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!--EDUCACION-->
+    <!-- EDUCACIÓN -->
     <section id="educacion" class="educacion-section">
         <div class="container">
-            <div class="row">
+            <div class="row gy-5 gx-lg-5">
 
-                <!-- Columna izquierda: Educación -->
-                <div class="col-md-6">
+                <div class="col-lg-6">
                     <h2 class="titulo-seccion">Educación</h2>
                     <div class="linea-tiempo">
                         <div class="item-educacion">
-                            <div class="punto"></div>
+                            <div class="punto" aria-hidden="true"></div>
                             <div class="contenido">
-                                <h4 class="titulo-estudio">Tecnología en Desarrollo de Software</h4>
-                                <p class="institucion"><strong>Politecnico Colombiano Jaime Isaza Cadavid</strong> – 2023 - Actualidad</p>
+                                <h3 class="titulo-estudio">Tecnología en Desarrollo de Software</h3>
+                                <p class="institucion"><strong>Politécnico Colombiano Jaime Isaza Cadavid</strong> – 2023 - Actualidad</p>
                                 <p>Formación técnica enfocada en programación, desarrollo web y metodologías ágiles.</p>
                             </div>
                         </div>
 
                         <div class="item-educacion futuro">
-                            <div class="punto"></div>
+                            <div class="punto" aria-hidden="true"></div>
                             <div class="contenido">
-                                <h4 class="titulo-estudio">Ingeniería Informática (proyección futura)</h4>
+                                <h3 class="titulo-estudio">Ingeniería Informática (proyección futura)</h3>
                                 <p>Plan de continuar la formación profesional al finalizar la tecnología.</p>
                             </div>
                         </div>
 
-                        <div class="timeline-item">
-                            <h4 class="titulo-idiomas">Idiomas</h4>
+                        <div class="item-idiomas">
+                            <h3 class="titulo-idiomas">Idiomas</h3>
                             <p><strong>Español:</strong> Nativo</p>
-                            <p><strong>Inglés:</strong> Intermedio – Lectura técnica, escritura y comunicación general
-                            </p>
+                            <p><strong>Inglés:</strong> Intermedio – Lectura técnica, escritura y comunicación general</p>
                         </div>
-
                     </div>
                 </div>
 
-                <!-- Cursos -->
-                <div class="col-md-6">
+                <div class="col-lg-6">
                     <h2 class="titulo-seccion">Cursos</h2>
                     <div class="linea-tiempo">
                         <div class="item-educacion">
-                            <div class="punto curso-react"></div>
+                            <div class="punto curso-react" aria-hidden="true"></div>
                             <div class="contenido">
-                                <h4 class="titulo-curso">Conceptos básicos de React</h4>
+                                <h3 class="titulo-curso">Conceptos básicos de React</h3>
                                 <p class="institucion"><strong>Coursera - Meta</strong> – 2025</p>
                                 <p>Aprendizaje en creación de componentes reutilizables, manejo de props y formularios,
                                     y organización de proyectos escalables. Desarrollo de interfaces dinámicas e
@@ -352,9 +403,9 @@
                         </div>
 
                         <div class="item-educacion">
-                            <div class="punto curso-js"></div>
+                            <div class="punto curso-cs50" aria-hidden="true"></div>
                             <div class="contenido">
-                                <h4 class="titulo-curso">Programación web de CS50 con Python y JavaScript</h4>
+                                <h3 class="titulo-curso">Programación web de CS50 con Python y JavaScript</h3>
                                 <p class="institucion"><strong>Harvard University</strong> – 2025</p>
                                 <p>Fundamentos de desarrollo web moderno con enfoque en bases de datos, APIs, UI
                                     interactivas y despliegue en la nube con GitHub y Heroku.</p>
@@ -362,19 +413,19 @@
                         </div>
 
                         <div class="item-educacion">
-                            <div class="punto curso-python"></div>
+                            <div class="punto curso-js" aria-hidden="true"></div>
                             <div class="contenido">
-                                <h4 class="titulo-curso">Programación con JavaScript</h4>
+                                <h3 class="titulo-curso">Programación con JavaScript</h3>
                                 <p class="institucion"><strong>Coursera - Meta</strong> – 2025</p>
                                 <p>Creación de códigos JavaScript sencillos. Creación y manipulación de objetos y
-                                    matrices. Escribir pruebas unitarias con Jest </p>
+                                    matrices. Escritura de pruebas unitarias con Jest.</p>
                             </div>
                         </div>
 
                         <div class="item-educacion">
-                            <div class="punto curso-git"></div>
+                            <div class="punto curso-db" aria-hidden="true"></div>
                             <div class="contenido">
-                                <h4 class="titulo-curso">Certificado profesional de Ingeniero de bases de datos</h4>
+                                <h3 class="titulo-curso">Certificado profesional de Ingeniero de bases de datos</h3>
                                 <p class="institucion"><strong>Coursera - Meta</strong> – 2025</p>
                                 <p>Enfoque práctico en la creación, gestión y optimización de bases de datos. Conexión
                                     de aplicaciones Python a MySQL y aplicación de conceptos avanzados de modelado de
@@ -388,59 +439,54 @@
         </div>
     </section>
 
-    <!-- Proyectos -->
-    <section id="proyectos" class="d-flex align-items-center">
+    <!-- PROYECTOS -->
+    <section id="proyectos" class="proyectos-section">
         <div class="container">
-            <h2 class="text-center mb-4">Proyectos</h2>
-            <div class="row g-4" id="projectGrid">
-                <!-- Grids dinámicos insertados con JS o manualmente -->
+            <h2 class="titulo-seccion text-center">Proyectos</h2>
+            <div id="projectGrid">
+                <!-- Tarjetas insertadas por js/scripts.js -->
             </div>
         </div>
     </section>
 
-
-    <!-- Servicios -->
-<section id="servicios" class="servicios-section">
-  <div class="container text-center">
-    <h2 class="titulo-seccion">Servicios</h2>
-    <div id="gridServicios" class="grid-servicios"></div>
-  </div>
-</section>
-
-<!-- Contacto -->
-<!-- Contacto -->
-<section id="contacto">
-    <div class="contenedor-contacto">
-        <h2 class="titulo-contacto">Contáctame</h2>
-        <form action="https://formspree.io/f/xgaeqjrl" method="POST" id="form-contacto">
-            <div class="campo-formulario">
-                <label for="nombre">Nombre completo</label>
-                <input type="text" id="nombre" name="name" placeholder="Tu nombre" required>
+    <!-- SERVICIOS -->
+    <section id="servicios" class="servicios-section">
+        <div class="container text-center">
+            <h2 class="titulo-seccion">Servicios</h2>
+            <div id="gridServicios" class="grid-servicios">
+                <!-- Tarjetas insertadas por js/servicios.js -->
             </div>
-            <div class="campo-formulario">
-                <label for="email">Correo electrónico</label>
-                <input type="email" id="email" name="email" placeholder="tunombre@correo.com" required>
-            </div>
-            <div class="campo-formulario">
-                <label for="mensaje">Mensaje</label>
-                <textarea id="mensaje" name="message" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
-            </div>
-            <div class="boton-contenedor">
-                <button type="submit">Enviar mensaje</button>
-            </div>
-        </form>
-    </div>
-</section>
+        </div>
+    </section>
 
+    <!-- CONTACTO -->
+    <section id="contacto">
+        <div class="contenedor-contacto">
+            <h2 class="titulo-contacto">Contáctame</h2>
+            <form action="https://formspree.io/f/xgaeqjrl" method="POST" id="form-contacto">
+                <div class="campo-formulario">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="name" placeholder="Tu nombre" autocomplete="name" required>
+                </div>
+                <div class="campo-formulario">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="tunombre@correo.com" autocomplete="email" required>
+                </div>
+                <div class="campo-formulario">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="message" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                </div>
+                <!-- Honeypot anti-spam de Formspree: los humanos no lo ven -->
+                <input type="text" name="_gotcha" class="campo-oculto" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <div class="boton-contenedor">
+                    <button type="submit">Enviar mensaje</button>
+                </div>
+                <p class="estado-formulario" id="estado-formulario" role="status" aria-live="polite"></p>
+            </form>
+        </div>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/cursor.js"></script>
-    <script src="js/scripts.js"></script>
-    <script src="js/background.js"></script>
-    <script src="js/scroll-barra.js"></script>
-    <script src="js/efecto-letraxletra.js"></script>
-    <script src="js/servicios.js"></script>
+    </main>
 </body>
 
 </html>
-

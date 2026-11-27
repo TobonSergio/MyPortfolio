@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tobonsergio.github.io/MyPortfolio/sitemap.xml

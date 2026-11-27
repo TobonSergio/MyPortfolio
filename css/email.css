@@ -7,15 +7,22 @@
   font-size: 14px;
   color: var(--beige);
   letter-spacing: 2px;
-  font-family: 'Courier New', Courier, monospace;
-  z-index: 9999;
+  font-family: var(--fuente-mono);
+  z-index: 999;
   white-space: nowrap;
   opacity: 0.8;
-  text-decoration: none;
   padding-left: 10px;
+  transition: color 0.3s ease, opacity 0.3s ease;
 }
 
 .email-vertical:hover {
   color: var(--white);
   opacity: 1;
+}
+
+/* Solo en pantallas grandes: en las demás tapa el contenido */
+@media (max-width: 1199.98px) {
+  .email-vertical {
+    display: none;
+  }
 }

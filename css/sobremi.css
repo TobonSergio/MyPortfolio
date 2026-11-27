@@ -1,65 +1,75 @@
-/* CONTENEDOR GENERAL SOBRE MÍ */
-.sobre-mi-section {
-  background-color: transparent;
-  color: var(--white);
-  padding: 60px 0;
+/* =========================================================
+   SOBRE MÍ
+   ========================================================= */
+.sobre-mi-section .container {
+  padding-bottom: 20px;
 }
 
-/* TITULO SOBRE MÍ CON DECORADO IZQUIERDO */
-.titulo-decorado {
+/* FRASE INICIAL (efecto letra por letra en js/efecto-letraxletra.js) */
+.frase-inicial {
+  font-size: clamp(1.6rem, 1rem + 2.8vw, 3.1rem);
   text-align: left;
+  color: var(--gris);
+  line-height: 1.25;
+  max-width: 1200px;
+  margin: 0 auto clamp(40px, 8vw, 80px);
 }
 
-.titulo-decorado h2 {
+.frase-inicial .palabra {
+  display: inline-block; /* evita cortar palabras a la mitad */
+}
+
+.frase-inicial .letra {
+  transition: color 0.3s;
+}
+
+.frase-inicial .letra.iluminada,
+.frase-inicial .letra:hover {
+  color: var(--verde-medio);
+}
+
+/* TÍTULOS DECORADOS */
+.titulo-decorado h2,
+.titulo-decorado-dos h3 {
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 700;
   color: var(--white);
   margin: 0;
-  position: relative;
-  margin-left: 30px;
 }
 
-.linea-decorativa {
-  width: 1240px;
+.titulo-decorado-dos {
+  margin-top: clamp(60px, 12vw, 160px);
+  text-align: right;
+}
+
+.linea-decorativa,
+.linea-decorativa-dos {
+  width: 100%;
   height: 3px;
   background-color: var(--gris-linea);
-  margin: 10px 0 0 30px;
+  margin: 10px 0 20px;
   border-radius: 5px;
 }
 
-/* SALUDO PERSONALIZADO */
-.saludo-container {
-  padding-left: 20px;
-}
-
-@media (max-width: 767px) {
-  .saludo-container {
-    flex-direction: column;
-    margin-left: 0;
-    align-items: center;
-    text-align: center;
-  }
-}
-
+/* SALUDO */
 .saludo {
   font-size: 1.8rem;
-  line-height: 1.4;
+  line-height: 1.3;
   font-weight: 400;
   color: var(--beige);
-  text-align: left;
+  margin: 0;
 }
 
 .saludo .nombre {
-  display: inline-block;
-  font-size: 3rem;
+  display: block;
+  font-size: clamp(2.2rem, 1.6rem + 2.2vw, 3rem);
   font-weight: 700;
   color: var(--white);
-  margin-left: 8px;
 }
 
 .saludo .apellido {
   display: block;
-  font-size: 3.2rem;
+  font-size: clamp(2.3rem, 1.6rem + 2.4vw, 3.2rem);
   font-weight: 700;
   color: var(--white);
 }
@@ -68,195 +78,114 @@
   color: var(--verde);
 }
 
-/* DESCRIPCIÓN DEL SOBRE MÍ */
+/* DESCRIPCIÓN */
 .texto-descripcion {
   color: var(--white);
   font-size: 1.1rem;
-  line-height: 1.6;
+  line-height: 1.7;
   padding: 25px 30px;
-  border-left: 0px solid var(--verde-medio);
-  border-radius: 0px;
-  transition: all 0.3s ease;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
 }
 
 .texto-descripcion:hover {
-  background-color: #181818ff;
-  border-left-color: var(--verde-hover);
+  background-color: var(--fondo);
 }
 
-/* ACORDEÓN PERSONALIZADO */
+.texto-descripcion p:last-child {
+  margin-bottom: 0;
+}
+
+/* ACORDEÓN PERSONALIZADO (sobre Bootstrap) */
 .accordion {
-  margin-top: 200px;
-  border-radius: 20px;
+  --bs-accordion-bg: transparent;
+  --bs-accordion-border-color: transparent;
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 2px var(--verde);
 }
-/* Contenedor del acordeón */
+
 .accordion-item {
-  background-color: rgba(41, 41, 41, 0.348); /* o el color que desees */
-  border: 1px solid var(--verde-hover);
-  border-radius: 20px; /* siempre redondeado */
+  background-color: rgba(41, 41, 41, 0.35);
+  border: 1px solid var(--verde-hover) !important;
+  border-radius: var(--radio) !important;
   margin-bottom: 2rem;
-  box-shadow: 0 2px 10px rgba(47, 47, 47, 0.353);
+  box-shadow: 0 2px 10px rgba(47, 47, 47, 0.35);
   overflow: hidden;
-  transition: transform 0.2s ease;
-
-}
-
-.accordion-header{
-  border-radius: 20px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .accordion-item:hover {
   transform: translateY(-2px);
-  border-color: var(--verde-medio);
+  border-color: var(--verde-medio) !important;
 }
 
-/* Botón del acordeón */
+.accordion-header {
+  margin: 0;
+}
+
 .accordion-button {
   background-color: transparent;
   color: var(--gris);
-  font-size: 2rem;
+  font-size: clamp(1.1rem, 0.8rem + 1.4vw, 2rem);
   font-weight: 700;
-  padding: 1.8rem 2rem;
-  border-radius: 20px !important; /* ¡importante! para sobrescribir Bootstrap */
-  transition: all 0.3s ease;
+  padding: clamp(1rem, 2.5vw, 1.8rem) clamp(1rem, 3vw, 2rem);
+  border-radius: 0 !important;
   box-shadow: none;
-  position: relative;
-  z-index: 2;
-  margin: 0; /* elimina espacio visual que interrumpe */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Icono del acordeón */
 .accordion-button::after {
   filter: brightness(4);
-  transform: scaleX(3.3);
-  margin-right: 30px;
-  border-width: 1.5em;
-  transition: transform 0.3s ease;
 }
 
-
-/* Estado cerrado - bordes redondeados completos */
-.accordion-button.collapsed {
-  border-radius: 20px;
-}
-
-/* Estado abierto del botón */
 .accordion-button:not(.collapsed) {
-  background-color: rgba(73, 73, 73, 0.168);
+  background-color: rgba(73, 73, 73, 0.17);
   color: var(--white);
-  border-radius: 20px 20px 0 0 !important; /* solo esquinas superiores redondeadas al abrir */
+  box-shadow: none;
 }
-/* Cuerpo del acordeón */
+
 .accordion-body {
   font-size: 1.05rem;
-  padding: 1.5rem 2rem;
-  background-color: rgba(42, 42, 42, 0.092);
+  line-height: 1.7;
+  padding: 1.5rem clamp(1.2rem, 3vw, 2rem);
   color: var(--white);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 0px 0px 20px 20px; /* redondeado solo abajo */
-  position: relative;
-  z-index: 1;
 }
-/* Lista personalizada dentro del acordeón */
+
+.accordion-body p:last-child {
+  margin-bottom: 0;
+}
+
 .accordion-body ul {
   list-style: none;
-  padding-left: 1.2rem;
-  margin-top: 1rem;
+  padding-left: 0.5rem;
+  margin: 1rem 0 0;
 }
 
 .accordion-body li {
   margin-bottom: 0.6rem;
   position: relative;
-  padding-left: 1.6rem;
+  padding-left: 1.8rem;
 }
 
 .accordion-body li::before {
   content: "✅";
   position: absolute;
   left: 0;
-  color: var(--verde-hover);
   font-size: 1rem;
 }
 
 /* RESPONSIVE */
-@media (max-width: 767px) {
-  .accordion-button {
-    font-size: 1.1rem;
-    padding: 1rem;
+@media (max-width: 767.98px) {
+  .saludo-container {
+    text-align: center;
   }
 
-  .saludo .nombre,
-  .saludo .apellido {
-    font-size: 2.4rem;
+  .texto-descripcion {
+    padding: 20px 4px;
+    font-size: 1rem;
   }
 
   .accordion-body {
     font-size: 0.95rem;
-    padding: 1rem 1.2rem;
   }
-}
-
-/* FRASE INICIAL */
-.frase-inicial {
-  font-size: 3.1rem;
-  text-align: left;
-  color: var(--gris);
-  margin-bottom: 40px;
-  padding: 0 20px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.2;
-  padding-left: 20px;
-}
-
-.frase-inicial span {
-  transition: color 0.3s;
-}
-
-.frase-inicial span:hover {
-  color: #03a02d;
-}
-
-/* DECORADO DERECHO */
-.titulo-decorado-dos h2 {
-  display: flex;
-  justify-content: end;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--white);
-  margin: 0;
-  position: relative;
-  margin-right: 30px;
-}
-
-.linea-decorativa-dos {
-  width: 1240px;
-  height: 3px;
-  background-color: var(--gris-linea);
-  margin: 10px 0px 20px 30px;
-  border-radius: 5px;
-}
-
-.sobre-mi-section .container{
-  padding-bottom: 20px;
-}
-/* Asegura que el último acordeón abierto tenga bordes redondeados abajo */
-.accordion-item:last-of-type.show {
-  border-radius: 20px;
-}
-
-/* Si el último acordeón está abierto, aplica bordes redondeados al fondo */
-.accordion-item:last-of-type .accordion-collapse.show + .accordion-body {
-  border-radius: 0 0 20px 20px;
-}
-
-/* Asegura que el contenedor también tenga su radio inferior */
-.accordion-item:last-of-type {
-  border-radius: 20px;
-}
-
-/* Asegura que la parte inferior del .accordion-button no tenga border-bottom */
-.accordion-button:not(.collapsed) {
-  border-bottom: none;
 }

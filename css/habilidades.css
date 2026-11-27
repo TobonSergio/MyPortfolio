@@ -1,72 +1,41 @@
-﻿.habilidad-bloque {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 200px;
+/* =========================================================
+   HABILIDADES
+   ========================================================= */
+.habilidad-bloque {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: clamp(60px, 10vw, 140px);
+}
+
+.habilidad-bloque:last-child {
+  margin-bottom: 0;
 }
 
 .col-titulo {
-  width: 300px; /* Espacio fijo para el título */
+  flex: 0 0 260px;
   text-align: left;
 }
 
 .col-titulo h3 {
-  font-size: 2.8rem;
+  font-size: clamp(1.8rem, 1.2rem + 2vw, 2.8rem);
   font-weight: 700;
   color: var(--white);
+  margin: 0;
 }
 
-.col-logos {
-  flex: 1;
-  padding-left: 0px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-
+/* Rejilla de logos */
 .logos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    column-gap: 60px; /* menor espacio horizontal */
-    row-gap: 30px;    /* espacio vertical si quieres mantenerlo */
+  flex: 1;
+  min-width: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  column-gap: 40px;
+  row-gap: 30px;
 }
-
-.logos-grid div {
-  display: flex;
-  align-items: center;     
-  gap: 12px;
-  font-size: 1.3rem;
-  color: var(--white);
-  line-height: 1;          
-}
-
-.logos-grid i {
-  font-size: 3.8rem;
-  display: flex;
-  align-items: center;     
-  justify-content: center;
-  min-width: 60px;         /* espacio uniforme para íconos */
-}
-
-.logos-grid div p {
-  margin: 0;         /* elimina posibles márgenes por defecto */
-  line-height: 2;  /* o ajusta según tu fuente */
-}
-
-
-
-
-#habilidades {
-  padding-left: 60px; /* Aumenta este valor si lo quieres aún más al centro */
-}
-
-.logos-icono img {
-  width: 60px;     /* puedes ajustar el valor según lo necesites */
-  height: 60px;
-  object-fit: contain;  /* mantiene la proporción sin recortar */
-}
-
 
 .logos-icono {
   display: flex;
@@ -74,9 +43,45 @@
   gap: 12px;
   font-size: 1.3rem;
   color: var(--white);
+  line-height: 1.2;
 }
 
-.logos-icono p {
-  margin: 0;
+.logos-icono img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
+/* Tablet: título arriba, logos debajo */
+@media (max-width: 1024px) {
+  .habilidad-bloque {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+
+  .col-titulo {
+    flex-basis: auto;
+    text-align: center;
+  }
+}
+
+/* Móvil: 2 columnas compactas en lugar de una lista larga */
+@media (max-width: 576px) {
+  .logos-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 16px;
+    row-gap: 20px;
+  }
+
+  .logos-icono {
+    font-size: 1rem;
+    gap: 10px;
+  }
+
+  .logos-icono img {
+    width: 40px;
+    height: 40px;
+  }
+}

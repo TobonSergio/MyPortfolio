@@ -1,24 +1,27 @@
-/* contacto.css */
+/* =========================================================
+   CONTACTO
+   ========================================================= */
 #contacto {
-  background-color: transparent;
-  padding: 80px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
 }
 
 .contenedor-contacto {
   width: 100%;
-  max-width: 1000px;
-  background-color: rgba(0, 0, 0, 0.05);
-  padding: 40px;
-  border-radius: 20px;
+  max-width: 800px;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: clamp(24px, 5vw, 48px);
+  border-radius: var(--radio);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   box-shadow: 0 0 10px rgba(85, 85, 85, 0.1);
 }
 
 .titulo-contacto {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 1.5rem + 2vw, 2.5rem);
   margin-bottom: 30px;
   color: var(--white);
 }
@@ -31,27 +34,42 @@
 
 .campo-formulario label {
   margin-bottom: 8px;
-  font-weight: bold;
+  font-weight: 700;
   color: var(--white);
 }
 
 .campo-formulario input,
 .campo-formulario textarea {
+  width: 100%;
   background-color: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: var(--white);
   padding: 12px 16px;
   border-radius: 12px;
-  font-size: 1rem;
-  resize: none;
-  transition: all 0.3s ease;
+  font-size: 1rem; /* 16px: evita el zoom automático en iOS */
+  resize: vertical;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.campo-formulario input::placeholder,
+.campo-formulario textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .campo-formulario input:focus,
 .campo-formulario textarea:focus {
   outline: none;
-  border-color: var(--white);
+  border-color: var(--verde);
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Honeypot anti-spam: fuera de la vista */
+.campo-oculto {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
 }
 
 .boton-contenedor {
@@ -65,11 +83,33 @@
   border: none;
   padding: 12px 30px;
   font-size: 1rem;
+  font-weight: 600;
   border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
 }
 
 .boton-contenedor button:hover {
   background-color: #e2e2e2;
+}
+
+.boton-contenedor button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+/* Mensaje de estado del envío */
+.estado-formulario {
+  margin: 16px 0 0;
+  text-align: center;
+  min-height: 1.5em;
+}
+
+.estado-formulario.exito { color: var(--verde); }
+.estado-formulario.error { color: var(--rosa-viejo); }
+
+@media (max-width: 480px) {
+  .boton-contenedor button {
+    width: 100%;
+  }
 }

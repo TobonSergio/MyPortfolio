@@ -1,29 +1,28 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const scrollBar = document.querySelector('.scroll-progress-bar');
+// =================================================================
+// BARRA DE PROGRESO DE SCROLL (vertical, a la derecha)
+// =================================================================
+(() => {
+  const barra = document.querySelector(".scroll-progress-bar");
+  if (!barra) return;
 
-  if (!scrollBar) {
-    console.warn("⚠️ No se encontró .scroll-progress-bar");
-    return;
-  }
+  let pendiente = false;
 
-  function updateScrollBar() {
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const actualizar = () => {
+    pendiente = false;
+    const recorrido = document.documentElement.scrollHeight - window.innerHeight;
+    const progreso = recorrido > 0 ? (window.scrollY / recorrido) * 100 : 0;
+    barra.style.height = `${Math.min(100, Math.max(0, progreso))}%`;
+  };
 
-    if (scrollHeight <= 0) {
-      scrollBar.style.height = '0%';
-      return;
+  const solicitar = () => {
+    if (!pendiente) {
+      pendiente = true;
+      requestAnimationFrame(actualizar);
     }
+  };
 
-    const scrollPercent = (scrollTop / scrollHeight) * 100;
-    scrollBar.style.height = `${scrollPercent}%`;
-  }
-
-  // Actualiza al hacer scroll
-  window.addEventListener('scroll', updateScrollBar);
-
-  // Anima al cargar la página
-  window.addEventListener('load', () => {
-    setTimeout(updateScrollBar, 300); // leve delay para suavidad
-  });
-});
+  window.addEventListener("scroll", solicitar, { passive: true });
+  window.addEventListener("resize", solicitar);
+  window.addEventListener("load", actualizar);
+  actualizar();
+})();

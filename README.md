@@ -1,37 +1,40 @@
 # Portafolio - Sergio Steban Tobon Montoya
 
-Bienvenido al repositorio de mi portafolio profesional. Aquí destaco mi experiencia, proyectos y habilidades como Estudiante de Ingeniería y Desarrollador Frontend/Junior Developer.
+Bienvenido al repositorio de mi portafolio profesional. Aquí destaco mi experiencia, proyectos y habilidades como Desarrollador de Software.
 
 ## 🚀 Sobre Mí
 Soy Sergio, un apasionado desarrollador de software enfocado en construir soluciones web funcionales, eficientes y centradas en el usuario.
 
 ## 🛠️ Tecnologías Utilizadas
-Este portafolio ha sido construido aplicando las siguientes tecnologías:
-- **HTML5 & CSS3** (Flexbox, Grid, Variables, Animaciones)
-- **JavaScript (ES6+)**
-- **Bootstrap 5**
-- **FontAwesome** para los iconos.
+- **HTML5 & CSS3** (Flexbox, Grid, variables CSS, `clamp()`, animaciones)
+- **JavaScript (ES6+)** sin dependencias de build
+- **Bootstrap 5.3** (navbar, acordeón y grid)
+- **Font Awesome 6** para los iconos
+- **Formspree** para el formulario de contacto
 
 ## 🔗 Demo
-Puedes visualizar el portafolio en línea en el siguiente enlace:
-[**[Aquí el enlace de tu Portafolio]**](https://tu-portfolio.com)
+[https://tobonsergio.github.io/MyPortfolio/](https://tobonsergio.github.io/MyPortfolio/)
 
 ## 📂 Estructura del Proyecto
-- `/img`: Contiene todas las imágenes estáticas (iconos de tecnologías, capturas de proyectos).
-- `/css`: Hojas de estilo modularizadas (variables, diseño base y por secciones).
-- `/js`: Archivos de scripts que dotan de interactividad a las distintas secciones, como la carga dinámica de proyectos y servicios.
-- `index.html`: Archivo principal de entrada.
+- `index.html`: archivo principal de entrada.
+- `/css`: hojas de estilo por sección. `variables.css` define los colores y tokens; `responsive-global.css` se carga al final con los ajustes compartidos entre secciones.
+- `/js`: interactividad (fondo animado, cursor, navbar, render de proyectos y servicios, formulario).
+- `/img`: imágenes estáticas (logos de tecnologías, capturas de proyectos, favicon).
+- `/pdf`: hoja de vida descargable.
+
+## ✏️ Cómo agregar un proyecto
+Edita el arreglo `proyectos` en `js/scripts.js`. Cada proyecto tiene `nombre`, `problema`, `solucion`, `rol`, `tecnologias`, `imagen`, `enlaceDemo` y `enlaceRepo`. Los botones de demo/código solo aparecen si el enlace no está vacío.
 
 ## ⚙️ Guía para ejecutar en local
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
+   git clone https://github.com/TobonSergio/MyPortfolio.git
    ```
 2. Accede al directorio:
    ```bash
-   cd tu-repositorio
+   cd MyPortfolio
    ```
-3. Abre el archivo `index.html` en tu navegador web o utiliza un servidor local como **Live Server** en VS Code.
+3. Abre `index.html` en tu navegador o usa un servidor local como **Live Server** en VS Code.
 
 ## 📬 Contacto
 - **Email:** tobonsergio22@gmail.com

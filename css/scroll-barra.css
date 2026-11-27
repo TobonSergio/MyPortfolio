@@ -8,9 +8,10 @@
   height: 90px;
   background-color: #8c8a7d;
   border-radius: 5px;
-  z-index: 9999;
+  z-index: 999;
   overflow: hidden;
   box-shadow: 0 0 6px rgb(171, 171, 171);
+  pointer-events: none;
 }
 
 /* Barra que se llena */
@@ -20,5 +21,13 @@
   background-color: #34c368;
   border-radius: 5px;
   box-shadow: 0 0 10px rgb(255, 255, 255);
-  transition: height 0.4s ease-in-out, box-shadow 0.3s ease;
+  transition: height 0.15s linear;
+}
+
+@media (max-width: 480px) {
+  .scroll-progress-container {
+    right: 4px;
+    width: 4px;
+    height: 70px;
+  }
 }

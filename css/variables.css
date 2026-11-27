@@ -1,19 +1,32 @@
 :root {
+  /* Colores */
   --white: #ffffff;
   --beige: #dbd3bf;
   --negro: #000000;
+  --fondo: #181818;
   --gris: #b6b5b5;
   --gris-shadow: #b1a89eb4;
+  --gris-linea: #2a2a2a;
   --verde-medio: #03a02d;
   --verde-oscuro: #141710;
   --verde: #1cc921;
+  --verde-brillante: #4fe054;
   --verde-hover: rgba(28, 201, 33, 0.25);
-  --gris-linea: #1c1c1c;
   --verde-claro: #07ff0f5e;
   --naranja: #ffa636;
   --azul: #007acd;
   --amarillo-pastel: #e6d884;
   --rosa-viejo: #dd838d;
 
+  /* Tipografía */
+  --fuente-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --fuente-titulos: 'Raleway', var(--fuente-base);
+  --fuente-tech: 'Orbitron', var(--fuente-base);
+  --fuente-mono: 'Courier New', Courier, monospace;
 
+  /* Layout */
+  --altura-navbar: 72px;
+  --gutter: clamp(16px, 4vw, 60px);
+  --espacio-seccion: clamp(60px, 10vw, 120px);
+  --radio: 20px;
 }

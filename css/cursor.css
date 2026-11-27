@@ -1,3 +1,5 @@
+/* Cursor personalizado: solo existe en dispositivos con mouse (ver js/cursor.js).
+   La posición se aplica con transform desde JS (sin transición, para que no se retrase). */
 .cursor {
   position: fixed;
   top: 0;
@@ -9,8 +11,13 @@
   border-radius: 50%;
   pointer-events: none;
   z-index: 10000;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease-out, background-color 0.3s;
+  opacity: 0;
+  transition: opacity 0.3s, background-color 0.3s;
+  will-change: transform;
+}
+
+.cursor.visible {
+  opacity: 1;
 }
 
 .cursor::after {

@@ -1,182 +1,251 @@
-﻿document.addEventListener("DOMContentLoaded", () => {
-  // =================================================================
-  // UTILIDADES
-  // =================================================================
+﻿// =================================================================
+// UTILIDADES
+// =================================================================
 
-  /**
-   * Verifica si un enlace es válido y utilizable.
-   * Se considera inválido: undefined, null, "", "#" o solo espacios.
-   * @param {string} url
-   * @returns {boolean}
-   */
-  const esEnlaceValido = (url) =>
-    Boolean(url) && url.trim() !== "" && url.trim() !== "#";
+/**
+ * Verifica si un enlace es válido y utilizable.
+ * Se considera inválido: undefined, null, "", "#" o solo espacios.
+ * @param {string} url
+ * @returns {boolean}
+ */
+const esEnlaceValido = (url) =>
+  typeof url === "string" && url.trim() !== "" && url.trim() !== "#";
 
-  // =================================================================
-  // 1. NAVBAR SCROLL HIDE/SHOW
-  // =================================================================
+/**
+ * Crea un elemento con clase y texto opcionales (sin innerHTML,
+ * así el contenido nunca se interpreta como HTML).
+ */
+const crearElemento = (etiqueta, clase, texto) => {
+  const el = document.createElement(etiqueta);
+  if (clase) el.className = clase;
+  if (texto !== undefined) el.textContent = texto;
+  return el;
+};
+
+// =================================================================
+// 1. NAVBAR: ocultar al bajar, mostrar al subir
+// =================================================================
+(() => {
   const navbar = document.getElementById("navbar");
-  let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  if (!navbar) return;
 
-  navbar.style.transition = "top 0.3s ease";
+  let ultimoScroll = window.scrollY;
+  let pendiente = false;
 
-  window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-    if (currentScroll > lastScrollTop && currentScroll > 50) {
-      navbar.style.top = "-100px";
-    } else {
-      navbar.style.top = "0";
-    }
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  const actualizar = () => {
+    pendiente = false;
+    const actual = window.scrollY;
+    const menuAbierto = navbar.querySelector(".navbar-collapse.show");
+    const ocultar = actual > ultimoScroll && actual > 80 && !menuAbierto;
+    navbar.classList.toggle("navbar-oculto", ocultar);
+    navbar.classList.toggle("navbar-scrolled", actual > 10);
+    ultimoScroll = Math.max(actual, 0);
+  };
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!pendiente) {
+        pendiente = true;
+        requestAnimationFrame(actualizar);
+      }
+    },
+    { passive: true }
+  );
+})();
+
+// =================================================================
+// 2. NAVBAR: cerrar menú móvil al elegir un enlace
+// =================================================================
+(() => {
+  const menu = document.getElementById("navbarNav");
+  if (!menu) return;
+
+  menu.querySelectorAll(".nav-link").forEach((enlace) => {
+    enlace.addEventListener("click", () => {
+      if (menu.classList.contains("show") && window.bootstrap) {
+        window.bootstrap.Collapse.getOrCreateInstance(menu).hide();
+      }
+    });
   });
+})();
 
-  // =================================================================
-  // 2. PROYECTOS (render dinámico)
-  // -----------------------------------------------------------------
-  // Modelo de datos de cada proyecto:
-  //   id           -> identificador único (string)
-  //   nombre       -> título visible del proyecto
-  //   problema     -> necesidad o situación que el proyecto resuelve
-  //   solucion     -> cómo se resuelve / qué hace el proyecto
-  //   rol          -> tu rol real dentro del proyecto
-  //   tecnologias  -> array de strings con las tecnologías usadas
-  //   imagen       -> ruta relativa a la carpeta img/ (ej: "img/proyecto-1.jpeg")
-  //   enlaceDemo   -> URL de la demo (Vercel/Netlify) o "" si no hay
-  //   enlaceRepo   -> URL del repositorio de GitHub o "" si no aplica
-  // =================================================================
-  const proyectos = [
-    // ---------------- PROYECTO 1 ----------------
-    // TODO: Reemplazar con datos reales
-    {
-      id: "proyecto-1",
-      nombre: "Nombre del proyecto 1", // TODO: Reemplazar con datos reales
-      problema: "Describe aquí el problema o necesidad que resuelve el proyecto.", // TODO: Reemplazar con datos reales
-      solucion: "Describe aquí la solución que implementaste.", // TODO: Reemplazar con datos reales
-      rol: "Desarrollador Frontend", // TODO: Reemplazar con tu rol real
-      tecnologias: ["HTML", "CSS", "JavaScript"], // TODO: Reemplazar con datos reales
-      imagen: "img/proyecto-1.jpeg", // Único asset existente; cámbialo por tu captura real
-      enlaceDemo: "", // TODO: pegar URL de la demo o dejar ""
-      enlaceRepo: "" // TODO: pegar URL del repo o dejar ""
-    },
-    // ---------------- PROYECTO 2 ----------------
-    // TODO: Reemplazar con datos reales
-    {
-      id: "proyecto-2",
-      nombre: "Nombre del proyecto 2", // TODO: Reemplazar con datos reales
-      problema: "Describe aquí el problema o necesidad que resuelve el proyecto.", // TODO: Reemplazar con datos reales
-      solucion: "Describe aquí la solución que implementaste.", // TODO: Reemplazar con datos reales
-      rol: "Desarrollador Full Stack", // TODO: Reemplazar con tu rol real
-      tecnologias: ["React", "Node.js", "MongoDB"], // TODO: Reemplazar con datos reales
-      imagen: "", // TODO: añade la imagen en img/ y referencia aquí
-      enlaceDemo: "", // TODO: pegar URL de la demo o dejar ""
-      enlaceRepo: "" // TODO: pegar URL del repo o dejar ""
-    },
-    // ---------------- PROYECTO 3 ----------------
-    // TODO: Reemplazar con datos reales
-    {
-      id: "proyecto-3",
-      nombre: "Nombre del proyecto 3", // TODO: Reemplazar con datos reales
-      problema: "Describe aquí el problema o necesidad que resuelve el proyecto.", // TODO: Reemplazar con datos reales
-      solucion: "Describe aquí la solución que implementaste.", // TODO: Reemplazar con datos reales
-      rol: "Desarrollador Backend", // TODO: Reemplazar con tu rol real
-      tecnologias: ["Java", "Spring Boot", "PostgreSQL"], // TODO: Reemplazar con datos reales
-      imagen: "", // TODO: añade la imagen en img/ y referencia aquí
-      enlaceDemo: "", // TODO: pegar URL de la demo o dejar ""
-      enlaceRepo: "" // TODO: pegar URL del repo o dejar ""
-    }
-  ];
+// =================================================================
+// 3. NAVBAR: resaltar el enlace de la sección visible
+// =================================================================
+(() => {
+  const enlaces = document.querySelectorAll('#navbar .nav-link[href^="#"]');
+  const secciones = Array.from(enlaces)
+    .map((a) => document.querySelector(a.getAttribute("href")))
+    .filter(Boolean);
+  if (!secciones.length) return;
 
-
-  /**
-   * Construye el HTML de la imagen del proyecto.
-   * - Si no hay ruta válida, renderiza un placeholder (icono).
-   * - Si la ruta es válida pero el archivo falla al cargar (onerror),
-   *   también cae al placeholder. Así nunca se ven imágenes rotas.
-   */
-  const renderImagenProyecto = (proyecto) => {
-    if (!esEnlaceValido(proyecto.imagen)) {
-      return `<div class="card-img card-img-placeholder"></div>`;
-    }
-    return `
-      <div class="card-img">
-        <img src="${proyecto.imagen}" alt="Captura del proyecto ${proyecto.nombre}" loading="lazy"
-             onerror="this.onerror=null; this.style.display='none'; this.parentElement.classList.add('card-img-placeholder');">
-      </div>`;
-  };
-
-  /**
-   * Construye los botones de acción (Demo / Repositorio).
-   * Cada botón SÓLO se renderiza si su enlace es válido (lógica defensiva).
-   * Si no hay ninguno, se muestra un aviso en su lugar.
-   */
-  const renderAccionesProyecto = (proyecto) => {
-    let html = `<div class="acciones-proyecto">`;
-
-    if (esEnlaceValido(proyecto.enlaceDemo)) {
-      html += `
-        <a class="btn-proyecto btn-demo" href="${proyecto.enlaceDemo}" target="_blank" rel="noopener noreferrer">
-          Ver demo <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>`;
-    }
-
-    if (esEnlaceValido(proyecto.enlaceRepo)) {
-      html += `
-        <a class="btn-proyecto btn-repo" href="${proyecto.enlaceRepo}" target="_blank" rel="noopener noreferrer">
-          Ver código <i class="fa-brands fa-github"></i>
-        </a>`;
-    }
-
-    if (!esEnlaceValido(proyecto.enlaceDemo) && !esEnlaceValido(proyecto.enlaceRepo)) {
-      html += `<span class="acciones-vacio">Enlaces próximamente</span>`;
-    }
-
-    html += `</div>`;
-    return html;
-  };
-
-  /**
-   * Pinta las tarjetas de proyectos en el contenedor #projectGrid.
-   */
-  const renderProyectos = () => {
-    const grid = document.getElementById("projectGrid");
-    if (!grid) return;
-
-    grid.innerHTML = "";
-
-    proyectos.forEach((proyecto) => {
-      const col = document.createElement("div");
-      col.className = "col";
-
-      const card = document.createElement("div");
-      card.className = "card-proyecto";
-
-      card.innerHTML = `
-        ${renderImagenProyecto(proyecto)}
-        <div class="card-contenido">
-          <h3 class="titulo-proyecto">${proyecto.nombre}</h3>
-          <div class="detalle-proyecto">
-            <p class="problema-proyecto">
-              <span class="etiqueta-detalle">Problema:</span> ${proyecto.problema}
-            </p>
-            <p class="solucion-proyecto">
-              <span class="etiqueta-detalle">Solución:</span> ${proyecto.solucion}
-            </p>
-            <p class="rol-proyecto">
-              <span class="etiqueta-detalle">Mi rol:</span> ${proyecto.rol}
-            </p>
-          </div>
-          <div class="herramientas-proyecto">
-            ${proyecto.tecnologias.map((tool) => `<span>${tool}</span>`).join("")}
-          </div>
-          ${renderAccionesProyecto(proyecto)}
-        </div>
-      `;
-
-      col.appendChild(card);
-      grid.appendChild(col);
+  const marcarActivo = (id) => {
+    enlaces.forEach((a) => {
+      const activo = a.getAttribute("href") === `#${id}`;
+      a.classList.toggle("active", activo);
+      if (activo) a.setAttribute("aria-current", "true");
+      else a.removeAttribute("aria-current");
     });
   };
 
-  renderProyectos();
-});
+  // Una sección cuenta como "activa" cuando cruza la franja central de la pantalla.
+  const observador = new IntersectionObserver(
+    (entradas) => {
+      entradas.forEach((e) => {
+        if (e.isIntersecting) marcarActivo(e.target.id);
+      });
+    },
+    { rootMargin: "-45% 0px -50% 0px" }
+  );
 
+  secciones.forEach((s) => observador.observe(s));
+})();
+
+// =================================================================
+// 4. PROYECTOS (render dinámico)
+// -----------------------------------------------------------------
+// Modelo de datos de cada proyecto:
+//   id           -> identificador único (string)
+//   nombre       -> título visible del proyecto
+//   problema     -> necesidad o situación que el proyecto resuelve
+//   solucion     -> cómo se resuelve / qué hace el proyecto
+//   rol          -> tu rol real dentro del proyecto
+//   tecnologias  -> array de strings con las tecnologías usadas
+//   imagen       -> ruta relativa a la carpeta img/ (ej: "img/proyecto-1.jpeg")
+//   enlaceDemo   -> URL de la demo (Vercel/Netlify) o "" si no hay
+//   enlaceRepo   -> URL del repositorio de GitHub o "" si no aplica
+// =================================================================
+const proyectos = [
+  // TODO: Reemplazar con datos reales
+  {
+    id: "proyecto-1",
+    nombre: "Nombre del proyecto 1",
+    problema: "Describe aquí el problema o necesidad que resuelve el proyecto.",
+    solucion: "Describe aquí la solución que implementaste.",
+    rol: "Desarrollador Frontend",
+    tecnologias: ["HTML", "CSS", "JavaScript"],
+    imagen: "img/proyecto-1.jpeg",
+    enlaceDemo: "",
+    enlaceRepo: ""
+  },
+  // TODO: Reemplazar con datos reales
+  {
+    id: "proyecto-2",
+    nombre: "BasketStats",
+    problema: "Consultar y comparar métricas de la NBA dispersas dificulta evaluar rendimientos y proyectar resultados con rapidez.",
+    solucion: "Implementé una app web con Supabase que centraliza y estructura estadísticas de jugadores y equipos para facilitar el análisis y pronóstico.",
+    rol: "Ingeniero QA",
+    tecnologias: ["React", "Node.js", "MongoDB"],
+    imagen: "img/logo_basket_stats.jpeg",
+    enlaceDemo: "https://stastbasketballfrontend.vercel.app/",
+    enlaceRepo: ""
+  },
+  // TODO: Reemplazar con datos reales
+  {
+    id: "proyecto-3",
+    nombre: "Nombre del proyecto 3",
+    problema: "Describe aquí el problema o necesidad que resuelve el proyecto.",
+    solucion: "Describe aquí la solución que implementaste.",
+    rol: "Desarrollador Backend",
+    tecnologias: ["Java", "Spring Boot", "PostgreSQL"],
+    imagen: "",
+    enlaceDemo: "",
+    enlaceRepo: ""
+  }
+];
+
+/**
+ * Imagen del proyecto. Si no hay ruta o el archivo falla al cargar,
+ * se muestra un placeholder (nunca se ven imágenes rotas).
+ */
+const crearImagenProyecto = (proyecto) => {
+  const contenedor = crearElemento("div", "card-img");
+
+  if (!esEnlaceValido(proyecto.imagen)) {
+    contenedor.classList.add("card-img-placeholder");
+    return contenedor;
+  }
+
+  const img = document.createElement("img");
+  img.src = proyecto.imagen;
+  img.alt = `Captura del proyecto ${proyecto.nombre}`;
+  img.loading = "lazy";
+  img.decoding = "async";
+  img.addEventListener(
+    "error",
+    () => {
+      img.remove();
+      contenedor.classList.add("card-img-placeholder");
+    },
+    { once: true }
+  );
+  contenedor.appendChild(img);
+  return contenedor;
+};
+
+const crearBoton = (clase, href, texto, icono) => {
+  const a = crearElemento("a", `btn-proyecto ${clase}`, `${texto} `);
+  a.href = href;
+  a.target = "_blank";
+  a.rel = "noopener noreferrer";
+  const i = crearElemento("i", icono);
+  i.setAttribute("aria-hidden", "true");
+  a.appendChild(i);
+  return a;
+};
+
+/** Botones Demo / Repositorio: solo se renderizan si el enlace es válido. */
+const crearAccionesProyecto = (proyecto) => {
+  const acciones = crearElemento("div", "acciones-proyecto");
+
+  if (esEnlaceValido(proyecto.enlaceDemo)) {
+    acciones.appendChild(
+      crearBoton("btn-demo", proyecto.enlaceDemo, "Ver demo", "fa-solid fa-arrow-up-right-from-square")
+    );
+  }
+  if (esEnlaceValido(proyecto.enlaceRepo)) {
+    acciones.appendChild(crearBoton("btn-repo", proyecto.enlaceRepo, "Ver código", "fa-brands fa-github"));
+  }
+  if (!acciones.children.length) {
+    acciones.appendChild(crearElemento("span", "acciones-vacio", "Enlaces próximamente"));
+  }
+  return acciones;
+};
+
+const crearDetalle = (clase, etiqueta, texto) => {
+  const p = crearElemento("p", clase);
+  p.append(crearElemento("span", "etiqueta-detalle", `${etiqueta}:`), ` ${texto}`);
+  return p;
+};
+
+const crearTarjetaProyecto = (proyecto) => {
+  const card = crearElemento("article", "card-proyecto");
+  card.id = proyecto.id;
+
+  const contenido = crearElemento("div", "card-contenido");
+  contenido.appendChild(crearElemento("h3", "titulo-proyecto", proyecto.nombre));
+
+  const detalle = crearElemento("div", "detalle-proyecto");
+  detalle.append(
+    crearDetalle("problema-proyecto", "Problema", proyecto.problema),
+    crearDetalle("solucion-proyecto", "Solución", proyecto.solucion),
+    crearDetalle("rol-proyecto", "Mi rol", proyecto.rol)
+  );
+  contenido.appendChild(detalle);
+
+  const herramientas = crearElemento("ul", "herramientas-proyecto");
+  herramientas.setAttribute("aria-label", "Tecnologías");
+  proyecto.tecnologias.forEach((t) => herramientas.appendChild(crearElemento("li", "", t)));
+  contenido.appendChild(herramientas);
+
+  contenido.appendChild(crearAccionesProyecto(proyecto));
+  card.append(crearImagenProyecto(proyecto), contenido);
+  return card;
+};
+
+(() => {
+  const grid = document.getElementById("projectGrid");
+  if (!grid) return;
+  grid.replaceChildren(...proyectos.map(crearTarjetaProyecto));
+})();

@@ -1,86 +1,128 @@
-// background.js
+// =================================================================
+// FONDO ANIMADO DE ESTRELLAS (canvas)
+// - Nítido en pantallas retina (devicePixelRatio).
+// - Las estrellas nunca quedan atrapadas fuera del canvas.
+// - En móvil no se regeneran cuando la barra del navegador cambia el alto.
+// - Respeta prefers-reduced-motion (dibuja un fondo estático).
+// =================================================================
+(() => {
+  const canvas = document.createElement("canvas");
+  canvas.id = "bgCanvas";
+  canvas.setAttribute("aria-hidden", "true");
+  document.body.prepend(canvas);
 
-let cursorX = 0;
-let cursorY = 0;
+  const ctx = canvas.getContext("2d");
+  const colores = ["#ffffff", "#62e000", "#51533c", "#9acd32", "#bada55"];
+  const COLOR_FONDO = "#181818";
+  const RADIO_REPULSION = 100;
+  const reducirMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-// Crear canvas y agregarlo al body
-const canvas = document.createElement("canvas");
-canvas.id = "bgCanvas";
-document.body.prepend(canvas);
+  let ancho = 0;
+  let alto = 0;
+  let estrellas = [];
+  let cursorX = -9999;
+  let cursorY = -9999;
+  let animacionId = null;
 
-const ctx = canvas.getContext("2d");
-let width, height;
-let stars = [];
-const starCount = 100;
+  const cantidadEstrellas = () => (ancho < 768 ? 50 : 100);
 
-const colors = ["#ffffff", "#62e000", "#51533c", "#9acd32", "#bada55"];
+  function redimensionar() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    ancho = window.innerWidth;
+    alto = window.innerHeight;
+    canvas.width = Math.round(ancho * dpr);
+    canvas.height = Math.round(alto * dpr);
+    canvas.style.width = `${ancho}px`;
+    canvas.style.height = `${alto}px`;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
 
-function resize() {
-  width = canvas.width = window.innerWidth;
-  height = canvas.height = window.innerHeight;
-}
-
-function createStars() {
-  stars = [];
-  for (let i = 0; i < starCount; i++) {
-    stars.push({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      radius: Math.random() * 1.5 + 0.5,
+  function crearEstrellas() {
+    estrellas = Array.from({ length: cantidadEstrellas() }, () => ({
+      x: Math.random() * ancho,
+      y: Math.random() * alto,
+      radio: Math.random() * 1.5 + 0.5,
       dx: (Math.random() - 0.5) * 0.2,
       dy: (Math.random() - 0.5) * 0.2,
-      color: colors[Math.floor(Math.random() * colors.length)]
-    });
+      color: colores[Math.floor(Math.random() * colores.length)]
+    }));
   }
-}
 
-function draw() {
-  ctx.clearRect(0, 0, width, height);
-  ctx.fillStyle = "#181818ff";
-  ctx.fillRect(0, 0, width, height);
+  function actualizarEstrella(e) {
+    const distX = e.x - cursorX;
+    const distY = e.y - cursorY;
+    const distancia = Math.hypot(distX, distY);
 
-  stars.forEach(star => {
-    // Distancia del cursor a la estrella
-    const dx = star.x - cursorX;
-    const dy = star.y - cursorY;
-    const dist = Math.sqrt(dx * dx + dy * dy);
-
-    if (dist < 100) {
-      // Efecto de repulsión
-      const angle = Math.atan2(dy, dx);
-      const force = (100 - dist) / 100;
-      star.x += Math.cos(angle) * force * 2;
-      star.y += Math.sin(angle) * force * 2;
+    if (distancia < RADIO_REPULSION && distancia > 0) {
+      const fuerza = (RADIO_REPULSION - distancia) / RADIO_REPULSION;
+      e.x += (distX / distancia) * fuerza * 2;
+      e.y += (distY / distancia) * fuerza * 2;
     } else {
-      // Movimiento natural
-      star.x += star.dx;
-      star.y += star.dy;
+      e.x += e.dx;
+      e.y += e.dy;
     }
 
-    // Rebote en bordes
-    if (star.x < 0 || star.x > width) star.dx *= -1;
-    if (star.y < 0 || star.y > height) star.dy *= -1;
+    // Rebote: se fija la posición dentro del canvas y la velocidad
+    // apunta hacia dentro, así la estrella no queda oscilando fuera.
+    if (e.x <= 0) { e.x = 0; e.dx = Math.abs(e.dx); }
+    else if (e.x >= ancho) { e.x = ancho; e.dx = -Math.abs(e.dx); }
+    if (e.y <= 0) { e.y = 0; e.dy = Math.abs(e.dy); }
+    else if (e.y >= alto) { e.y = alto; e.dy = -Math.abs(e.dy); }
+  }
 
-    // Dibujar estrella
-    ctx.beginPath();
-    ctx.fillStyle = star.color;
-    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-    ctx.fill();
+  function dibujar() {
+    ctx.fillStyle = COLOR_FONDO;
+    ctx.fillRect(0, 0, ancho, alto);
+
+    for (const e of estrellas) {
+      ctx.beginPath();
+      ctx.fillStyle = e.color;
+      ctx.arc(e.x, e.y, e.radio, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  function animar() {
+    estrellas.forEach(actualizarEstrella);
+    dibujar();
+    animacionId = requestAnimationFrame(animar);
+  }
+
+  function iniciar() {
+    cancelAnimationFrame(animacionId);
+    if (reducirMovimiento.matches) {
+      dibujar(); // fondo estático
+    } else {
+      animar();
+    }
+  }
+
+  window.addEventListener(
+    "pointermove",
+    (ev) => {
+      if (ev.pointerType !== "mouse") return;
+      cursorX = ev.clientX;
+      cursorY = ev.clientY;
+    },
+    { passive: true }
+  );
+
+  // En móvil la barra de direcciones cambia el alto al hacer scroll:
+  // solo se regeneran las estrellas si cambia el ANCHO.
+  let temporizador;
+  window.addEventListener("resize", () => {
+    clearTimeout(temporizador);
+    temporizador = setTimeout(() => {
+      const anchoAnterior = ancho;
+      redimensionar();
+      if (ancho !== anchoAnterior) crearEstrellas();
+      if (reducirMovimiento.matches) dibujar();
+    }, 150);
   });
 
-  requestAnimationFrame(draw);
-}
+  reducirMovimiento.addEventListener?.("change", iniciar);
 
-window.addEventListener("mousemove", e => {
-  cursorX = e.clientX;
-  cursorY = e.clientY;
-});
-
-window.addEventListener("resize", () => {
-  resize();
-  createStars();
-});
-
-resize();
-createStars();
-draw();
+  redimensionar();
+  crearEstrellas();
+  iniciar();
+})();
