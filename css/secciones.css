@@ -133,7 +133,7 @@
   border: 1px solid var(--linea);
   border-radius: var(--radio-l);
   background: var(--superficie);
-  box-shadow: 0 1.5rem 3rem -1.5rem rgb(15 25 80 / 0.28);
+  box-shadow: 0 1.5rem 3rem -1.5rem rgb(24 24 27 / 0.2);
 }
 
 .pila__ayuda {
@@ -173,7 +173,7 @@
 }
 
 .capa input:checked + label {
-  border-color: var(--acento);
+  border-color: var(--relleno);
   background: var(--acento-tenue);
 }
 
@@ -237,7 +237,7 @@
   height: 0.7rem;
   margin-left: -0.28rem;
   border-radius: 50%;
-  background: var(--senal);
+  background: var(--relleno);
   opacity: 0;
 }
 
@@ -248,7 +248,7 @@
 
   &::before {
     width: 3px;
-    background: var(--senal);
+    background: var(--relleno);
   }
 
   &::after {
@@ -398,7 +398,7 @@
 }
 
 .experiencia li::marker {
-  color: var(--acento);
+  color: var(--relleno);
 }
 
 .experiencia strong {
@@ -543,7 +543,7 @@
   left: 0;
   width: 0.875rem;
   height: 0.875rem;
-  border: 3px solid var(--acento);
+  border: 3px solid var(--relleno);
   border-radius: 50%;
 }
 
@@ -618,7 +618,7 @@
   gap: var(--e-3);
   align-content: start;
   padding-top: var(--e-5);
-  border-top: 3px solid var(--acento);
+  border-top: 3px solid var(--relleno);
 }
 
 .servicios .icono {

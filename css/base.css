@@ -109,7 +109,7 @@ section:focus {
 }
 
 ::selection {
-  background: var(--acento);
+  background: var(--relleno);
   color: var(--sobre-acento);
 }
 
@@ -153,7 +153,7 @@ section:focus {
   z-index: 100;
   padding: var(--e-3) var(--e-4);
   border-radius: var(--radio-s);
-  background: var(--acento);
+  background: var(--relleno);
   color: var(--sobre-acento);
   font-weight: 700;
   translate: 0 -200%;

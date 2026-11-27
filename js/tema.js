@@ -9,7 +9,7 @@
   if (!boton || !meta || !CSS.supports("color", "light-dark(white, black)")) return;
 
   const CLAVE = "color-scheme";
-  const FONDOS = { light: "#F4F6FC", dark: "#111214" };
+  const FONDOS = { light: "#FAFAFA", dark: "#111214" };
   const sistemaOscuro = window.matchMedia("(prefers-color-scheme: dark)");
   const metasColor = document.querySelectorAll('meta[name="theme-color"]');
   const temaSistema = () => (sistemaOscuro.matches ? "dark" : "light");

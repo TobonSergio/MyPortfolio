@@ -19,19 +19,20 @@
 
 :root {
   /* ---------- Paleta base (contraste AA verificado en ambos temas) ---------- */
-  --claro-fondo: #f4f6fc;
-  --claro-superficie: #ffffff;
-  --claro-tinta: #111a3a;
-  --claro-suave: #47527a;
-  --claro-acento: #2a45d1;
-  --claro-sobre-acento: #ffffff;
-  --claro-acento-tenue: #e6eaff;
-  --claro-senal: #a34400;
-  --claro-borde: #7a84ad;  /* bordes de controles: 3:1 o más */
-  --claro-linea: #d5daec;  /* separadores decorativos */
-  --claro-error: #b3261e;
+  --claro-fondo: #fafafa;
+  --claro-superficie: #f0efea;
+  --claro-tinta: #18181b;
+  --claro-suave: #52525b;
+  --claro-acento: #b32d10;
+  --claro-sobre-acento: #18181b;
+  --claro-acento-tenue: #ffe5de;
+  --claro-senal: #b32d10;
+  --claro-borde: #7c7a72;  /* bordes de controles: 3:1 o más */
+  --claro-linea: #dddbd3;  /* separadores decorativos */
+  --claro-relleno: #ff5a36; /* coral vivo: fondos y adornos, no texto */
+  --claro-error: #855000;
   --claro-exito: #1b6b3a;
-  --claro-etiqueta: #111a3a;
+  --claro-etiqueta: #b32d10;
 
   --oscuro-fondo: #111214;
   --oscuro-superficie: #1b1d20;
@@ -43,6 +44,7 @@
   --oscuro-senal: #ff7a66;
   --oscuro-borde: #70777f;
   --oscuro-linea: #2e3236;
+  --oscuro-relleno: #ff7a66;
   --oscuro-error: #ffd166;
   --oscuro-exito: #8be0a8;
   --oscuro-etiqueta: #ff7a66;
@@ -60,6 +62,7 @@
   --linea: var(--claro-linea);
   --error: var(--claro-error);
   --exito: var(--claro-exito);
+  --relleno: var(--claro-relleno);
   --etiqueta: var(--claro-etiqueta);
 
   /* ---------- Tipografía (escala fluida) ---------- */
@@ -111,6 +114,7 @@
     --linea: var(--oscuro-linea);
     --error: var(--oscuro-error);
     --exito: var(--oscuro-exito);
+    --relleno: var(--oscuro-relleno);
     --etiqueta: var(--oscuro-etiqueta);
   }
 }
@@ -130,6 +134,7 @@
     --linea: light-dark(var(--claro-linea), var(--oscuro-linea));
     --error: light-dark(var(--claro-error), var(--oscuro-error));
     --exito: light-dark(var(--claro-exito), var(--oscuro-exito));
+    --relleno: light-dark(var(--claro-relleno), var(--oscuro-relleno));
     --etiqueta: light-dark(var(--claro-etiqueta), var(--oscuro-etiqueta));
   }
 }

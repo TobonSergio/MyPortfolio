@@ -57,7 +57,7 @@
   color: var(--tinta);
   border: 1px solid var(--borde);
   border-radius: var(--radio-m);
-  box-shadow: 0 1rem 2.5rem rgb(5 10 35 / 0.28);
+  box-shadow: 0 1rem 2.5rem rgb(0 0 0 / 0.22);
 }
 
 .nav__lista a {
@@ -167,8 +167,8 @@
 }
 
 .boton--principal {
-  border-color: var(--acento);
-  background: var(--acento);
+  border-color: var(--relleno);
+  background: var(--relleno);
   color: var(--sobre-acento);
 }
 
