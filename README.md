@@ -43,7 +43,7 @@ La página funciona sin JavaScript; los scripts solo añaden mejoras.
 </a>
 ```
 
-Usa imágenes WebP e indica siempre `width`, `height` y `alt`. Si la imagen no es un logotipo cuadrado, ajusta `.caso__imagen` en `css/secciones.css`.
+Usa imágenes WebP e indica siempre `width`, `height` y `alt`. La base está pensada para un logotipo cuadrado; si es una captura de pantalla ancha, añade la clase `caso--captura` al `<article>` (ver IconShoes).
 
 **Agregar una tecnología:** añade el logo (96×96, WebP) en `img/tech/` y un `<li>` en su grupo. Si debe aparecer en el diagrama de la portada, agrégala también en la capa correspondiente.
 

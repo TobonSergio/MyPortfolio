@@ -367,6 +367,22 @@
   }
 }
 
+/* Variante para capturas de pantalla anchas: imagen completa arriba */
+.caso--captura {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.caso--captura .caso__imagen img {
+  max-width: none;
+  height: auto;
+  aspect-ratio: 2000 / 965;
+}
+
+.caso--captura .caso__detalle {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  column-gap: var(--e-6);
+}
+
 /* =========================================================
    EXPERIENCIA
    ========================================================= */
