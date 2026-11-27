@@ -6,24 +6,48 @@ Bienvenido al repositorio de mi portafolio profesional. Aquí destaco mi experie
 Soy Sergio, un apasionado desarrollador de software enfocado en construir soluciones web funcionales, eficientes y centradas en el usuario.
 
 ## 🛠️ Tecnologías Utilizadas
-- **HTML5 & CSS3** (Flexbox, Grid, variables CSS, `clamp()`, animaciones)
-- **JavaScript (ES6+)** sin dependencias de build
-- **Bootstrap 5.3** (navbar, acordeón y grid)
-- **Font Awesome 6** para los iconos
-- **Formspree** para el formulario de contacto
+- **HTML semántico** con `<details>` y la API `popover` nativos.
+- **CSS** sin frameworks: tokens de diseño, Grid, `clamp()`, `:has()`, `light-dark()`.
+- **JavaScript** sin dependencias ni paso de compilación.
+- **Formspree** para el formulario de contacto.
+- Fuentes propias [Bricolage Grotesque](fonts/LICENSE-bricolage-grotesque.txt) y [Source Sans 3](fonts/LICENSE-source-sans-3.txt) (licencia OFL).
 
 ## 🔗 Demo
 [https://tobonsergio.github.io/MyPortfolio/](https://tobonsergio.github.io/MyPortfolio/)
 
 ## 📂 Estructura del Proyecto
-- `index.html`: archivo principal de entrada.
-- `/css`: hojas de estilo por sección. `variables.css` define los colores y tokens; `responsive-global.css` se carga al final con los ajustes compartidos entre secciones.
-- `/js`: interactividad (fondo animado, cursor, navbar, render de proyectos y servicios, formulario).
-- `/img`: imágenes estáticas (logos de tecnologías, capturas de proyectos, favicon).
+- `index.html`: todo el contenido.
+- `/css`
+  - `tokens.css`: colores (claro y oscuro), tipografía, espacios y radios.
+  - `base.css`: reinicio, tipografía, foco y utilidades.
+  - `componentes.css`: cabecera, botones, etiquetas, desplegables y formulario.
+  - `secciones.css`: diseño de cada sección.
+- `/js`
+  - `tema.js`: cambio entre tema claro y oscuro.
+  - `navegacion.js`: menú adaptable y sección activa.
+  - `contacto.js`: validación y envío del formulario.
+- `/img`: capturas, logos (`/tech`), imágenes de proyectos (`/proyectos`), favicon e imagen para redes (`og.jpg`).
+- `/fonts`: tipografías.
 - `/pdf`: hoja de vida descargable.
 
-## ✏️ Cómo agregar un proyecto
-Edita el arreglo `proyectos` en `js/scripts.js`. Cada proyecto tiene `nombre`, `problema`, `solucion`, `rol`, `tecnologias`, `imagen`, `enlaceDemo` y `enlaceRepo`. Los botones de demo/código solo aparecen si el enlace no está vacío.
+La página funciona sin JavaScript; los scripts solo añaden mejoras.
+
+## ✏️ Cómo actualizar el contenido
+
+**Agregar un proyecto:** en `index.html`, copia un `<article class="caso">` de la sección `#proyectos`, cambia su `id`, textos, tecnologías y enlaces. Elimina el botón de demo o repositorio si no existe. Para un botón de código:
+
+```html
+<a class="boton" href="URL_DEL_REPOSITORIO" target="_blank" rel="noopener noreferrer">
+    <svg class="icono" aria-hidden="true"><use href="#i-github"></use></svg>
+    Ver código
+</a>
+```
+
+Usa imágenes WebP e indica siempre `width`, `height` y `alt`. Si la imagen no es un logotipo cuadrado, ajusta `.caso__imagen` en `css/secciones.css`.
+
+**Agregar una tecnología:** añade el logo (96×96, WebP) en `img/tech/` y un `<li>` en su grupo. Si debe aparecer en el diagrama de la portada, agrégala también en la capa correspondiente.
+
+**Cambiar colores:** edita las variables `--claro-*` y `--oscuro-*` en `css/tokens.css` y comprueba que el contraste siga en 4.5:1 para texto. Si cambias el fondo, actualízalo también en `js/tema.js` y en las etiquetas `theme-color` de `index.html`.
 
 ## ⚙️ Guía para ejecutar en local
 1. Clona el repositorio:
@@ -34,7 +58,7 @@ Edita el arreglo `proyectos` en `js/scripts.js`. Cada proyecto tiene `nombre`, `
    ```bash
    cd MyPortfolio
    ```
-3. Abre `index.html` en tu navegador o usa un servidor local como **Live Server** en VS Code.
+3. Usa un servidor local como **Live Server** en VS Code. Abrir `index.html` directamente también funciona, aunque la consola mostrará avisos por la precarga de fuentes.
 
 ## 📬 Contacto
 - **Email:** tobonsergio22@gmail.com

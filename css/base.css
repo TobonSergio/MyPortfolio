@@ -1,0 +1,164 @@
+/* =========================================================
+   BASE: reinicio, tipografía, enlaces, foco y utilidades
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* El foco y los anclajes no quedan ocultos tras la cabecera fija */
+  scroll-padding-top: calc(var(--alto-cabecera) + var(--e-4));
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent; /* hay estados propios de foco y pulsación */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--tinta);
+  font-family: var(--fuente-texto);
+  font-size: var(--texto-base);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--texto-portada);
+  font-weight: 750;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-size: var(--texto-2xl);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--e-7);
+}
+
+h3 {
+  font-size: var(--texto-m);
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+dl,
+dd {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--acento);
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+a,
+button,
+summary,
+label {
+  touch-action: manipulation;
+}
+
+:focus-visible {
+  outline: 3px solid var(--acento);
+  outline-offset: 3px;
+}
+
+/* Destinos de anclaje: reciben foco sin dibujar un marco en toda la sección */
+main:focus,
+section:focus {
+  outline: none;
+}
+
+::selection {
+  background: var(--acento);
+  color: var(--sobre-acento);
+}
+
+.contenedor {
+  /* Respeta el margen y las zonas seguras de pantallas con muesca */
+  width: min(100% - 2 * max(var(--margen), env(safe-area-inset-left), env(safe-area-inset-right)), var(--ancho));
+  margin-inline: auto;
+}
+
+/* Hoja de iconos: no ocupa espacio (el atributo hidden no aplica a SVG) */
+.sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.icono {
+  width: 1.25em;
+  height: 1.25em;
+  flex: none;
+}
+
+/* Visible solo para lectores de pantalla */
+.solo-lector {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.saltar {
+  position: fixed;
+  top: var(--e-3);
+  left: var(--e-3);
+  z-index: 100;
+  padding: var(--e-3) var(--e-4);
+  border-radius: var(--radio-s);
+  background: var(--acento);
+  color: var(--sobre-acento);
+  font-weight: 700;
+  translate: 0 -200%;
+}
+
+.saltar:focus {
+  translate: 0 0;
+}

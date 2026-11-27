@@ -1,0 +1,435 @@
+/* =========================================================
+   COMPONENTES: cabecera, navegación, botones, etiquetas,
+   desplegables y formulario
+   ========================================================= */
+
+/* ---------- Cabecera ---------- */
+.cabecera {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--fondo);
+  border-bottom: 1px solid var(--linea);
+  padding-top: env(safe-area-inset-top);
+}
+
+.cabecera__fila {
+  display: flex;
+  align-items: center;
+  gap: var(--e-3);
+  min-height: var(--alto-cabecera);
+}
+
+/* Sin encogimiento: así js/navegacion.js puede medir si todo cabe en una fila */
+.cabecera__fila > * {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.marca {
+  margin-right: auto;
+  color: var(--tinta);
+  font-family: var(--fuente-titulos);
+  font-size: var(--texto-m);
+  font-weight: 750;
+  text-decoration: none;
+}
+
+/* ---------- Navegación: menú desplegable por defecto ---------- */
+.nav__boton {
+  anchor-name: --boton-menu;
+}
+
+.nav__lista {
+  position: fixed;
+  inset: auto;
+  top: var(--alto-cabecera);
+  top: anchor(--boton-menu bottom);
+  right: var(--margen);
+  width: min(100vw - 2 * var(--margen), 18rem);
+  max-height: calc(100dvh - var(--alto-cabecera) - var(--e-5));
+  margin: var(--e-2) 0 0;
+  padding: var(--e-2);
+  overflow: auto;
+  overscroll-behavior: contain;
+  list-style: none;
+  background: var(--superficie);
+  color: var(--tinta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-m);
+  box-shadow: 0 1rem 2.5rem rgb(5 10 35 / 0.28);
+}
+
+.nav__lista a {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: var(--e-2) var(--e-3);
+  border-radius: var(--radio-s);
+  color: var(--tinta);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav__lista a:hover {
+  background: var(--acento-tenue);
+}
+
+/* La sección activa se marca con subrayado grueso, no solo con color */
+.nav__lista a[aria-current="true"] {
+  color: var(--acento);
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.45em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .nav__lista:popover-open {
+    animation: aparecer var(--duracion) ease-out;
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    translate: 0 -0.5rem;
+  }
+}
+
+/* Pantallas muy estrechas: el botón queda solo con el icono (el texto sigue accesible) */
+@media (max-width: 22.5rem) {
+  .nav__texto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+}
+
+/* ---------- Navegación en línea (cuando cabe) ---------- */
+.cabecera.es-ancha .nav__boton {
+  display: none;
+}
+
+.cabecera.es-ancha .nav__lista {
+  position: static;
+  display: flex;
+  gap: var(--e-1);
+  width: auto;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  animation: none;
+}
+
+.cabecera.es-ancha .nav__lista a {
+  font-size: var(--texto-s);
+  padding-inline: 0.625rem;
+}
+
+/* ---------- Botones ---------- */
+.boton,
+.boton-icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--e-2);
+  min-height: 2.75rem;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-s);
+  background: transparent;
+  color: var(--tinta);
+  font: 700 var(--texto-base) / 1.2 var(--fuente-texto);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--duracion), border-color var(--duracion), translate var(--duracion);
+}
+
+.boton {
+  padding: var(--e-3) var(--e-5);
+}
+
+.boton-icono {
+  min-width: 2.75rem;
+  padding: var(--e-2) var(--e-3);
+}
+
+.boton:hover,
+.boton-icono:hover {
+  border-color: var(--acento);
+  background: var(--acento-tenue);
+  text-decoration: none;
+}
+
+.boton--principal {
+  border-color: var(--acento);
+  background: var(--acento);
+  color: var(--sobre-acento);
+}
+
+.boton--principal:hover {
+  background: var(--tinta);
+  border-color: var(--tinta);
+  color: var(--fondo);
+}
+
+.boton:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .boton:active:not(:disabled),
+  .boton-icono:active {
+    translate: 0 1px;
+  }
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-3);
+}
+
+/* ---------- Botón de tema: muestra solo la acción disponible ---------- */
+.tema[hidden] {
+  display: none;
+}
+
+.tema > span {
+  display: flex;
+}
+
+.tema__a-claro {
+  display: none !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tema__a-claro {
+    display: flex !important;
+  }
+
+  .tema__a-oscuro {
+    display: none !important;
+  }
+}
+
+:root:has(> head > meta[name="color-scheme"][content="dark"]) {
+  .tema__a-claro {
+    display: flex !important;
+  }
+
+  .tema__a-oscuro {
+    display: none !important;
+  }
+}
+
+:root:has(> head > meta[name="color-scheme"][content="light"]) {
+  .tema__a-claro {
+    display: none !important;
+  }
+
+  .tema__a-oscuro {
+    display: flex !important;
+  }
+}
+
+/* ---------- Etiquetas de tecnologías ---------- */
+.etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--e-2);
+  list-style: none;
+}
+
+.etiquetas li {
+  padding: var(--e-1) var(--e-3);
+  border-radius: var(--radio-s);
+  background: var(--acento-tenue);
+  color: var(--etiqueta);
+  font-size: var(--texto-s);
+  font-weight: 600;
+}
+
+/* ---------- Desplegables (<details> nativo) ---------- */
+.desplegable {
+  border-top: 1px solid var(--linea);
+}
+
+.desplegable:last-child {
+  border-bottom: 1px solid var(--linea);
+}
+
+.desplegable summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--e-4);
+  min-height: 3.5rem;
+  padding-block: var(--e-3);
+  font-family: var(--fuente-titulos);
+  font-size: var(--texto-m);
+  font-weight: 650;
+  list-style: none;
+  cursor: pointer;
+}
+
+.desplegable summary::-webkit-details-marker {
+  display: none;
+}
+
+.desplegable summary::after {
+  content: "+";
+  content: "+" / "";
+  color: var(--acento);
+  font-size: var(--texto-l);
+  line-height: 1;
+}
+
+.desplegable[open] summary::after {
+  content: "−";
+  content: "−" / "";
+}
+
+.desplegable summary:hover {
+  color: var(--acento);
+}
+
+.desplegable__cuerpo {
+  display: grid;
+  gap: var(--e-3);
+  padding-bottom: var(--e-5);
+  color: var(--suave);
+}
+
+.desplegable__cuerpo ul {
+  display: grid;
+  gap: var(--e-1);
+  padding-left: 1.2em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .desplegable[open] .desplegable__cuerpo {
+    animation: aparecer var(--duracion) ease-out;
+  }
+}
+
+/* ---------- Formulario ---------- */
+.formulario {
+  display: grid;
+  gap: var(--e-4);
+  align-content: start;
+}
+
+.campo {
+  display: grid;
+  gap: var(--e-2);
+}
+
+.campo label {
+  font-weight: 700;
+}
+
+.campo input,
+.campo textarea {
+  width: 100%;
+  min-height: 3rem;
+  padding: var(--e-3) var(--e-4);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-s);
+  background: var(--fondo);
+  color: var(--tinta);
+  font: inherit; /* 17px: evita el zoom automático en iOS */
+  resize: vertical;
+}
+
+.campo input:hover,
+.campo textarea:hover {
+  border-color: var(--acento);
+}
+
+.campo ::placeholder {
+  color: var(--suave);
+  opacity: 1;
+}
+
+.campo__error {
+  display: none;
+  color: var(--error);
+  font-size: var(--texto-s);
+  font-weight: 600;
+}
+
+.campo__error::before {
+  content: "⚠ ";
+  content: "⚠ " / "";
+}
+
+/* El error aparece solo después de que la persona interactúa */
+.campo :is(input, textarea):user-invalid {
+  border: 2px solid var(--error);
+}
+
+.campo :user-invalid ~ .campo__error {
+  display: block;
+}
+
+.campo-trampa {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.formulario .boton {
+  justify-self: start;
+}
+
+.formulario__estado {
+  min-height: 1.6em;
+  font-weight: 700;
+}
+
+.formulario__estado.es-exito {
+  color: var(--exito);
+}
+
+.formulario__estado.es-exito::before {
+  content: "✓ ";
+  content: "✓ " / "";
+}
+
+.formulario__estado.es-error {
+  color: var(--error);
+}
+
+.formulario__estado.es-error::before {
+  content: "⚠ ";
+  content: "⚠ " / "";
+}
+
+@media (max-width: 30rem) {
+  .acciones .boton,
+  .formulario .boton {
+    width: 100%;
+  }
+}
+
+/* ---------- Alto contraste de Windows ---------- */
+@media (forced-colors: active) {
+  .boton,
+  .boton-icono,
+  .etiquetas li {
+    border: 1px solid ButtonText;
+  }
+
+  .campo :user-invalid {
+    outline: 2px solid Mark;
+  }
+}

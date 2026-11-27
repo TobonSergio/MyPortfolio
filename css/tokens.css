@@ -1,0 +1,144 @@
+/* =========================================================
+   TOKENS DEL SISTEMA DE DISEÑO
+   Cambia aquí colores, tipografía, espacios y radios.
+   ========================================================= */
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("../fonts/bricolage-grotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("../fonts/source-sans-3.woff2") format("woff2");
+  font-weight: 200 900;
+  font-display: swap;
+}
+
+:root {
+  /* ---------- Paleta base (contraste AA verificado en ambos temas) ---------- */
+  --claro-fondo: #f4f6fc;
+  --claro-superficie: #ffffff;
+  --claro-tinta: #111a3a;
+  --claro-suave: #47527a;
+  --claro-acento: #2a45d1;
+  --claro-sobre-acento: #ffffff;
+  --claro-acento-tenue: #e6eaff;
+  --claro-senal: #a34400;
+  --claro-borde: #7a84ad;  /* bordes de controles: 3:1 o más */
+  --claro-linea: #d5daec;  /* separadores decorativos */
+  --claro-error: #b3261e;
+  --claro-exito: #1b6b3a;
+  --claro-etiqueta: #111a3a;
+
+  --oscuro-fondo: #111214;
+  --oscuro-superficie: #1b1d20;
+  --oscuro-tinta: #f2f4f3;
+  --oscuro-suave: #b4bab6;
+  --oscuro-acento: #ff7a66;
+  --oscuro-sobre-acento: #111214;
+  --oscuro-acento-tenue: #3a211e;
+  --oscuro-senal: #ff7a66;
+  --oscuro-borde: #70777f;
+  --oscuro-linea: #2e3236;
+  --oscuro-error: #ffd166;
+  --oscuro-exito: #8be0a8;
+  --oscuro-etiqueta: #ff7a66;
+
+  /* ---------- Colores semánticos (valores claros por defecto) ---------- */
+  --fondo: var(--claro-fondo);
+  --superficie: var(--claro-superficie);
+  --tinta: var(--claro-tinta);
+  --suave: var(--claro-suave);
+  --acento: var(--claro-acento);
+  --sobre-acento: var(--claro-sobre-acento);
+  --acento-tenue: var(--claro-acento-tenue);
+  --senal: var(--claro-senal);
+  --borde: var(--claro-borde);
+  --linea: var(--claro-linea);
+  --error: var(--claro-error);
+  --exito: var(--claro-exito);
+  --etiqueta: var(--claro-etiqueta);
+
+  /* ---------- Tipografía (escala fluida) ---------- */
+  --fuente-titulos: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --fuente-texto: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --texto-s: 0.9375rem;
+  --texto-base: 1.0625rem;
+  --texto-m: 1.25rem;
+  --texto-l: 1.5rem;
+  --texto-xl: clamp(1.6rem, 1.25rem + 1.5vw, 2.25rem);
+  --texto-2xl: clamp(2.1rem, 1.5rem + 2.6vw, 3.25rem);
+  --texto-portada: clamp(2.5rem, 1.1rem + 5.4vw, 5rem);
+
+  /* ---------- Espaciado (base 4px) ---------- */
+  --e-1: 0.25rem;
+  --e-2: 0.5rem;
+  --e-3: 0.75rem;
+  --e-4: 1rem;
+  --e-5: 1.5rem;
+  --e-6: 2rem;
+  --e-7: 3rem;
+  --e-8: 4rem;
+  --e-seccion: clamp(4rem, 2rem + 7vw, 7.5rem);
+
+  /* ---------- Forma y layout ---------- */
+  --radio-s: 0.375rem;  /* controles y etiquetas */
+  --radio-m: 0.75rem;   /* paneles */
+  --radio-l: 1.25rem;   /* piezas protagonistas */
+  --ancho: 72rem;
+  --margen: clamp(1rem, 4vw, 2.5rem);
+  --alto-cabecera: 4.25rem;
+  --duracion: 180ms;
+
+  color-scheme: light dark;
+}
+
+/* Respaldo para navegadores sin light-dark(): sigue la preferencia del sistema */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: var(--oscuro-fondo);
+    --superficie: var(--oscuro-superficie);
+    --tinta: var(--oscuro-tinta);
+    --suave: var(--oscuro-suave);
+    --acento: var(--oscuro-acento);
+    --sobre-acento: var(--oscuro-sobre-acento);
+    --acento-tenue: var(--oscuro-acento-tenue);
+    --senal: var(--oscuro-senal);
+    --borde: var(--oscuro-borde);
+    --linea: var(--oscuro-linea);
+    --error: var(--oscuro-error);
+    --exito: var(--oscuro-exito);
+    --etiqueta: var(--oscuro-etiqueta);
+  }
+}
+
+/* Navegadores actuales: los colores obedecen a color-scheme (y al botón de tema) */
+@supports (color: light-dark(white, black)) {
+  :root {
+    --fondo: light-dark(var(--claro-fondo), var(--oscuro-fondo));
+    --superficie: light-dark(var(--claro-superficie), var(--oscuro-superficie));
+    --tinta: light-dark(var(--claro-tinta), var(--oscuro-tinta));
+    --suave: light-dark(var(--claro-suave), var(--oscuro-suave));
+    --acento: light-dark(var(--claro-acento), var(--oscuro-acento));
+    --sobre-acento: light-dark(var(--claro-sobre-acento), var(--oscuro-sobre-acento));
+    --acento-tenue: light-dark(var(--claro-acento-tenue), var(--oscuro-acento-tenue));
+    --senal: light-dark(var(--claro-senal), var(--oscuro-senal));
+    --borde: light-dark(var(--claro-borde), var(--oscuro-borde));
+    --linea: light-dark(var(--claro-linea), var(--oscuro-linea));
+    --error: light-dark(var(--claro-error), var(--oscuro-error));
+    --exito: light-dark(var(--claro-exito), var(--oscuro-exito));
+    --etiqueta: light-dark(var(--claro-etiqueta), var(--oscuro-etiqueta));
+  }
+}
+
+/* Preferencia manual: js/tema.js solo cambia el <meta name="color-scheme"> */
+:root:has(> head > meta[name="color-scheme"][content="light"]) {
+  color-scheme: light;
+}
+
+:root:has(> head > meta[name="color-scheme"][content="dark"]) {
+  color-scheme: dark;
+}
